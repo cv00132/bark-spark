@@ -8,5 +8,5 @@ import Config from './config';
 
 
 angular
-.module('app', ['ui-router', 'ng-cookies'])
+.module('app', ['ui-router', 'ngCookies'])
 .config(Config)
