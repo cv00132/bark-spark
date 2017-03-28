@@ -7,6 +7,12 @@ function Config($stateProvider, $urlRouterProvider) {
             controller: 'UserController'
         })
 
+        .state('login', {
+          url: '/login',
+          templateUrl: 'templates/login.tpl.html',
+          controller: 'UserController'
+        })
+
         $urlRouterProvider.when('', '/signUp');
 }
 
