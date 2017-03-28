@@ -1,13 +1,14 @@
 <div class="backgroundImage">
-<div class="signUpContainer">
-  <div class="signUpQuote">
-    Puppy Love Awaits!
+    <div class="signUpContainer">
+        <div class="signUpQuote">
+            Puppy Love Awaits!
+        </div>
+        <form class="signUp" ng-submit="signUp(data)">
+            <input type="text" placeholder="Email" ng-model="data.email">
+            <input type="text" placeholder="Username" ng-model="data.username">
+            <input type="password" placeholder="Password" ng-model="data.password">
+            <input type="date" ng-model="data.birthday"><br><br>
+            <button>Sign Up!</button>
+        </form>
+    </div>
   </div>
-  <form class="signUp" ng-submit="signUp(data)">
-    <input type="text" placeholder="Email" ng-model="data.email">
-    <input type="text" placeholder="Username" ng-model="data.username">
-    <input type="password" placeholder="Password" ng-model="data.password">
-    <input type="date" placeholder="Date of birth (Ex: 01/01/1997)" ng-model="data.birthday"><br><br>
-    <button>Sign Up!</button>
-  </form>
-</div>
