@@ -10,7 +10,7 @@ import UserController from './controllers/user.js';
 
 
 angular
-.module('app', ['ui.router', 'ngCookies'])
-.config(Config)
-.constant('SERVER', SERVER)
-.controller('UserController', UserController);
+    .module('app', ['ui.router', 'ngCookies'])
+    .config(Config)
+    .constant('SERVER', SERVER)
+    .controller('UserController', UserController);
