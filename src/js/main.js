@@ -8,6 +8,7 @@ import setup from './setup';
 
 import UserController from './controllers/user.js';
 import ProfileController from './controllers/profile.js';
+import HomeController from './controllers/home.js';
 
 
 
