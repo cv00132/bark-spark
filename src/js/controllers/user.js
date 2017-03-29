@@ -1,6 +1,7 @@
 import SERVER from '../server'
 
 function UserController($scope, $http, SERVER, $cookies, $state, $rootScope) {
+
     $scope.signUp = function(data) {
         $http.post(`${SERVER}/signUp`, data)
             .then(function(response) {
@@ -25,7 +26,6 @@ function UserController($scope, $http, SERVER, $cookies, $state, $rootScope) {
       console.log(error, "you suck");
     })
   };
-
 }
 
 

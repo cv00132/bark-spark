@@ -9,8 +9,6 @@
 
 
 body{
-  background: grey;
-
   .signUpBackgroundImage{
     background-image: url(../images/beachdog.jpg);
     background-repeat: no-repeat;
@@ -20,7 +18,6 @@ body{
     position: fixed;
     background-position:center;
   }
-}
 
 .loginBackgroundImage{
   background-image: url(../images/fieldDog.jpg);
@@ -30,12 +27,15 @@ body{
   height: 100%;
   position: fixed;
   background-position:center;
+ }
+ background: #F5F8FA;
 }
 
 .navbar{
   background:#E79C67;
   width:100%;
   height: 70px;
+  box-shadow: 1px 1px 10px grey;
 
   .navTitle{
     color: white;
@@ -44,6 +44,7 @@ body{
     padding-top: 1%;
     float:left;
     font-family: 'Fredoka One', cursive;
+    text-shadow: 1px 1px 2px black;
   }
 
   .searchBar{
@@ -164,4 +165,133 @@ body{
 .signUpContainer:hover{
   opacity: 1;
   transition: all .5s ease-in-out;
+}
+
+.userContainer{
+  width: 25%;
+  height: 500px;
+  margin-left: 2%;
+  margin-top: 2%;
+  float:left;
+  background-color: #D5ECF4;
+  border-radius: 10px;
+  border: 1px solid grey;
+  color:white;
+  text-shadow: 1px 1px 2px black;
+  box-shadow: 1px 1px 15px grey;
+
+  .profilePictureContainer{
+    height:45%;
+    width:80%;
+    margin: auto;
+
+    .profileName{
+      text-align: center;
+    }
+
+    .profilePicture{
+      height:60%;
+      width:55%;
+      border-radius: 500px;
+      margin:auto;
+      margin-top: 5%;
+      border:1px solid lightgrey;
+
+      img{
+        width: 100%;
+        height: 100%;
+        border-radius: 100px;
+      }
+    }
+
+    .dogContainer{
+      width: 100%;
+      height:40%;
+
+      .dogPicture{
+        height:90%;
+        width:30%;
+        border-radius: 100%;
+        display: inline-block;
+        margin-right: 3%;
+        text-align: center;
+        border:1px solid lightgrey;
+
+        img{
+          width: 100%;
+          height:100%;
+          border-radius: 100%;
+
+          .dogName{
+            width:30%;
+            height:30%;
+          }
+        }
+      }
+    }
+  }
+
+  .dogTags{
+    height:40%;
+    width:80%;
+    border:1px solid black;
+    margin:auto;
+    margin-top: 15%;
+
+    ul{
+      list-style-type: none;
+    }
+  }
+}
+
+.matchContainer{
+  height: 300px;
+  width:100%;
+  border:1px solid black;
+  margin-top: 12%;
+  float:left;
+}
+
+.feed{
+  height:800px;
+  width:45%;
+  border:1px solid black;
+  float:left;
+  margin-left: 12%;
+  margin-top: 2%;
+  margin-bottom: 5%;
+}
+
+.userAboutMe{
+  height:100%;
+  width:40%;
+  float:left;
+  margin-left: 14.5%;
+  margin-top: 2%;
+  overflow: auto;
+  border: 1px solid lightgrey;
+  padding-left: 1%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  border-radius: 10px;
+  background: #E79C67;
+  color:white;
+  text-shadow: 1px 1px 2px black;
+}
+
+.dogAboutMe{
+  height:100%;
+  width:40%;
+  float:left;
+  margin-left: 14.5%;
+  margin-top: 1%;
+  overflow: auto;
+  border: 1px solid lightgrey;
+  padding-left:1%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  border-radius: 10px;
+  background: #E79C67;
+  color:white;
+  text-shadow: 1px 1px 2px black;
 }

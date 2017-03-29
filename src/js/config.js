@@ -13,6 +13,12 @@ function Config($stateProvider, $urlRouterProvider) {
           controller: 'UserController'
         })
 
+        .state('profile', {
+          url: '/profile/:id',
+          templateUrl: 'templates/profile.tpl.html',
+          controller: 'ProfileController as ProfileController'
+        })
+
         $urlRouterProvider.when('', '/signUp');
 }
 
