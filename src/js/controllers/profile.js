@@ -11,10 +11,10 @@ function ProfileController ($http, $state, SERVER, $location){
     $http.get(`${SERVER}/user/${$state.params.id}`)
     .then(function(response){
       vm.currentUser=response.data;
+      vm.posts=response.data.Posts;
       vm.dogs=response.data.Dogs;
-      console.log(vm.currentUser);
-      console.log(vm.dogs);
       console.log(response, "you got data");
+      console.log(vm.posts);
     })
     .catch(function(error){
       console.log(error, "you suck");
@@ -37,12 +37,15 @@ function ProfileController ($http, $state, SERVER, $location){
     })
   }
 
-  function postText(post) {
+  function postText(body) {
     console.log("working")
-    $http.post(`${SERVER}/post`, post)
+    $http.post(`${SERVER}/post`, body)
     .then(function(){
       console.log("successfully posted the textPost");
       backToProfile();
+    })
+    .catch(function(error){
+      console.log(error);
     })
   }
 }

@@ -7,7 +7,6 @@
   font-family: 'Abel', sans-serif;
 }
 
-
 body{
   .signUpBackgroundImage{
     background-image: url(../images/beachdog.jpg);
@@ -261,6 +260,14 @@ body{
   margin-bottom: 5%;
   background-color: #D5ECF4;
 
+  .feedContent{
+    height:200px;
+    width:98%;
+    border:1px solid black;
+    margin: auto;
+    margin-top: 10%;
+  }
+
   .addPhotoPostButton{
     width: 10%;
     height:5%;
@@ -413,6 +420,7 @@ body{
     height: 10%;
     margin-left: 5%;
     margin-top: 2%;
+    margin-bottom: 1%;
   }
 
   .addText{
@@ -441,6 +449,7 @@ body{
     border: 1px solid white;
     width:100%;
     padding-left: 3%;
+    padding-top: 2%;
     outline: none;
   }
 
