@@ -1,6 +1,7 @@
 import SERVER from '../server'
 
-function UserController($scope, $http, SERVER, $cookies, $state, $rootScope) {
+function UserController($scope, $http, SERVER, $cookies, $state, $rootScope, $location) {
+
     $scope.signUp = function(data) {
         $http.post(`${SERVER}/signUp`, data)
             .then(function(response) {
@@ -20,15 +21,15 @@ function UserController($scope, $http, SERVER, $cookies, $state, $rootScope) {
       $cookies.put('access-token', response.data.token);
       $http.defaults.headers.common['access-token'] = response.data.token;
       console.log(response.data.token, "you logged in");
+      $location.path(`/profile/${response.data.user.id}`);
     })
     .catch(function(error){
       console.log(error, "you suck");
     })
   };
-
 }
 
 
-UserController.$inject = ['$scope', '$http', 'SERVER', '$cookies', '$state', '$rootScope'];
+UserController.$inject = ['$scope', '$http', 'SERVER', '$cookies', '$state', '$rootScope', '$location'];
 
 export default UserController;

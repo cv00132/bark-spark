@@ -13,7 +13,31 @@ function Config($stateProvider, $urlRouterProvider) {
           controller: 'UserController'
         })
 
-        $urlRouterProvider.when('', '/signUp');
+        .state('home', {
+          url: '/home',
+          templateUrl: 'templates/home.tpl.html',
+          controller: 'HomeController as HomeController'
+        })
+
+        .state('profile', {
+          url: '/profile/:id',
+          templateUrl: 'templates/profile.tpl.html',
+          controller: 'ProfileController as ProfileController'
+        })
+
+      .state('profile.addPhoto', {
+        url: '/addPhoto',
+        templateUrl: 'templates/addPhoto.tpl.html',
+        controller: 'ProfileController as ProfileController'
+      })
+
+      .state('profile.addText', {
+        url: '/addText',
+        templateUrl: 'templates/addText.tpl.html',
+        controller: 'ProfileController as ProfileController'
+      })
+
+      $urlRouterProvider.when('', '/signUp');
 }
 
 

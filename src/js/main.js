@@ -7,6 +7,9 @@ import SERVER from './server';
 import setup from './setup';
 
 import UserController from './controllers/user.js';
+import ProfileController from './controllers/profile.js';
+import HomeController from './controllers/home.js';
+
 
 
 
@@ -15,4 +18,5 @@ angular
     .config(Config)
     .run (setup)
     .constant('SERVER', SERVER)
-    .controller('UserController', UserController);
+    .controller('UserController', UserController)
+    .controller('ProfileController', ProfileController);

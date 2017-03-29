@@ -1,0 +1,41 @@
+<div class="userContainer">
+    <div class="profilePictureContainer">
+        <div class="profilePicture"><img ng-src="{{ProfileController.currentUser.profilePic}}" /></div>
+        <div class="profileName">{{ProfileController.currentUser.username}}</div>
+        <div class="dogContainer">
+            <div class="dogPicture" ng-repeat="x in ProfileController.dogs">
+                <img ng-src="{{x.picture}}" />
+                <div class="dogName">
+                    {{x.name}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dogTags">
+        <ul>
+        </ul>
+    </div>
+    <div class="matchContainer"> matches
+    </div>
+</div>
+<div class="userAboutMe">
+    <b>About {{ProfileController.currentUser.username}}</b>: <br><br>{{ProfileController.currentUser.description}}
+</div>
+<div class="dogAboutMe" ng-repeat="dog in ProfileController.dogs">
+    <b>About {{dog.name}}</b>:<br><br> {{dog.description}}
+</div>
+<div ui-view></div>
+<div class="feed">
+    <div class="addPhotoPostButton">
+      <a href="#!/profile/{{ProfileController.currentUser.id}}/addPhoto">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        <i class="fa fa-camera-retro" aria-hidden="true"></i>
+      </a>
+    </div>
+    <div class="addTextPostButton">
+      <a href="#!/profile/{{ProfileController.currentUser.id}}/addText">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        <i class="fa fa-commenting-o" aria-hidden="true"></i>
+        </a>
+    </div>
+</div>
