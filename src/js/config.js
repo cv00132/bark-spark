@@ -1,43 +1,50 @@
 function Config($stateProvider, $urlRouterProvider) {
 
     $stateProvider
-        .state('signUp', {
+
+        .state('root', {
+          abstract: true,
+          templateUrl: 'templates/layout.tpl.html',
+          controller: 'UserController'
+        })
+
+        .state('root.signUp', {
             url: '/signUp',
             templateUrl: 'templates/signUp.tpl.html',
             controller: 'UserController'
         })
 
-        .state('login', {
+        .state('root.login', {
           url: '/login',
           templateUrl: 'templates/login.tpl.html',
           controller: 'UserController'
         })
 
-        .state('home', {
+        .state('root.home', {
           url: '/home',
           templateUrl: 'templates/home.tpl.html',
           controller: 'HomeController as HomeController'
         })
 
-        .state('profile', {
+        .state('root.profile', {
           url: '/profile/:id',
           templateUrl: 'templates/profile.tpl.html',
           controller: 'ProfileController as ProfileController'
         })
 
-      .state('profile.addPhoto', {
+      .state('root.profile.addPhoto', {
         url: '/addPhoto',
         templateUrl: 'templates/addPhoto.tpl.html',
         controller: 'ProfileController as ProfileController'
       })
 
-      .state('profile.addText', {
+      .state('root.profile.addText', {
         url: '/addText',
         templateUrl: 'templates/addText.tpl.html',
         controller: 'ProfileController as ProfileController'
       })
 
-      $urlRouterProvider.when('', '/signUp');
+      $urlRouterProvider.when('', '/login');
 }
 
 

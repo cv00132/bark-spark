@@ -1,12 +1,13 @@
 <div class="userContainer">
+  <button>Add a dog</button>
     <div class="profilePictureContainer">
         <div class="profilePicture"><img ng-src="{{ProfileController.currentUser.profilePic}}" /></div>
-        <div class="profileName">{{ProfileController.currentUser.username}}</div>
+        <div class="profileName">{{ProfileController.currentUser.username}}<br/>{{ProfileController.currentUser.location}}</div>
         <div class="dogContainer">
-            <div class="dogPicture" ng-repeat="x in ProfileController.dogs">
-                <img ng-src="{{x.picture}}" />
+            <div class="dogPicture" ng-repeat="dog in ProfileController.dogs">
+                <img ng-src="{{dog.picture}}" />
                 <div class="dogName">
-                    {{x.name}}
+                    {{dog.name}}
                 </div>
             </div>
         </div>
@@ -19,23 +20,27 @@
     </div>
 </div>
 <div class="userAboutMe">
-    <b>About {{ProfileController.currentUser.username}}</b>: <br><br>{{ProfileController.currentUser.description}}
+    <b>About {{ProfileController.currentUser.username}}</b>: <br>{{ProfileController.currentUser.description}}
 </div>
 <div class="dogAboutMe" ng-repeat="dog in ProfileController.dogs">
-    <b>About {{dog.name}}</b>:<br><br> {{dog.description}}
+    <b>About {{dog.name}}</b>:<br> {{dog.description}}
 </div>
 <div ui-view></div>
 <div class="feed">
     <div class="addPhotoPostButton">
       <a href="#!/profile/{{ProfileController.currentUser.id}}/addPhoto">
-        <i class="fa fa-plus" aria-hidden="true"></i>
         <i class="fa fa-camera-retro" aria-hidden="true"></i>
       </a>
     </div>
     <div class="addTextPostButton">
       <a href="#!/profile/{{ProfileController.currentUser.id}}/addText">
-        <i class="fa fa-plus" aria-hidden="true"></i>
         <i class="fa fa-commenting-o" aria-hidden="true"></i>
         </a>
+    </div>
+    <div class="feedContent" ng-repeat="photo in ProfileController.photos">
+      <img ng-src="{{photo.photoUrl}}"/>
+      <p class="caption">{{photo.caption}}</p>
+    </div>
+
     </div>
 </div>

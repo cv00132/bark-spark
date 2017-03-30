@@ -1,0 +1,11 @@
+<div class="addDogModalBackground">
+<div class="addDogModal">
+  <div class="addDogModalTitle">Add a dog</div>
+  <form class="addDog">
+    <input type="text" placeholder="Dog Photo URL" ng-model="photo.photoUrl">
+    <textarea name="description" rows="7" cols="40" placeholder="Photo description" ng-model="photo.caption"></textarea>
+    <button class = "postButton" ng-click="ProfileController.postPhoto(photo)">Post</button>
+    <button class = "cancelButton" ng-click="ProfileController.backToProfile()">Cancel</button>
+  </form>
+</div>
+</div>
