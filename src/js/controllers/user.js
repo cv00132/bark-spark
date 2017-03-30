@@ -27,7 +27,15 @@ function UserController($scope, $http, SERVER, $cookies, $state, $rootScope, $lo
       console.log(error, "you suck");
     })
   };
+
+  $scope.logout = function(){
+    $cookies.remove('access-token');
+    $rootScope.loggedIn = false;
+    $location.path(`/login`)
 }
+}
+
+
 
 
 UserController.$inject = ['$scope', '$http', 'SERVER', '$cookies', '$state', '$rootScope', '$location'];

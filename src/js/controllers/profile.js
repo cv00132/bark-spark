@@ -3,6 +3,7 @@ function ProfileController ($http, $state, SERVER, $location){
   let vm = this;
 
   vm.dogs=[];
+  vm.photos=[];
   vm.postPhoto = postPhoto;
   vm.backToProfile = backToProfile;
   vm.postText = postText;
@@ -13,6 +14,7 @@ function ProfileController ($http, $state, SERVER, $location){
       vm.currentUser=response.data;
       vm.posts=response.data.Posts;
       vm.dogs=response.data.Dogs;
+      vm.photos=response.data.Photos;
       console.log(response, "you got data");
       console.log(vm.posts);
     })
@@ -23,7 +25,7 @@ function ProfileController ($http, $state, SERVER, $location){
   init();
 
   function backToProfile(){
-      $state.go(`profile`);
+      $state.go(`root.profile`);
   }
 
   function postPhoto(photo) {
@@ -31,6 +33,7 @@ function ProfileController ($http, $state, SERVER, $location){
     .then(function(){
       console.log("successfully posted the photo");
       backToProfile();
+      $state.reload();
     })
     .catch(function(error){
       console.log(error);
@@ -43,6 +46,7 @@ function ProfileController ($http, $state, SERVER, $location){
     .then(function(){
       console.log("successfully posted the textPost");
       backToProfile();
+      $state.reload();
     })
     .catch(function(error){
       console.log(error);
