@@ -5,7 +5,7 @@ function UserController($scope, $http, SERVER, $cookies, $state, $rootScope, $lo
     $scope.signUp = function(data) {
         $http.post(`${SERVER}/signUp`, data)
             .then(function(response) {
-                $state.go('login');
+                $state.go('root.login');
                 console.log(response.data, 'User successfully created');
             })
             .catch(function(error) {

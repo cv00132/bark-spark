@@ -19,4 +19,5 @@ angular
     .run (setup)
     .constant('SERVER', SERVER)
     .controller('UserController', UserController)
-    .controller('ProfileController', ProfileController);
+    .controller('ProfileController', ProfileController)
+    .controller('HomeController', HomeController);

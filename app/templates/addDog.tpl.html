@@ -2,9 +2,12 @@
 <div class="addDogModal">
   <div class="addDogModalTitle">Add a dog</div>
   <form class="addDog">
-    <input type="text" placeholder="Dog Photo URL" ng-model="photo.photoUrl">
-    <textarea name="description" rows="7" cols="40" placeholder="Photo description" ng-model="photo.caption"></textarea>
-    <button class = "postButton" ng-click="ProfileController.postPhoto(photo)">Post</button>
+    <input type="text" placeholder="Dog Photo URL" ng-model="dog.picture"/>
+    <input type="text" placeholder="Name" ng-model="dog.name"/>
+    <input type="text" placeholder="Breed" ng-model="dog.breed"/>
+    <input type="text" placeholder="Age" ng-model="dog.age"/>
+    <textarea name="description" rows="7" cols="40" placeholder="About your dog" ng-model="dog.description"></textarea>
+    <button class = "postButton" ng-click="ProfileController.addDog(dog)">Post</button>
     <button class = "cancelButton" ng-click="ProfileController.backToProfile()">Cancel</button>
   </form>
 </div>
