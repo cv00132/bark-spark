@@ -32,6 +32,12 @@ function Config($stateProvider, $urlRouterProvider) {
           controller: 'ProfileController as ProfileController'
         })
 
+        .state('root.profile.addDog',{
+          url: '/addDog',
+          templateUrl: 'templates/addDog.tpl.html',
+          controller: 'ProfileController as ProfileController'
+        })
+
       .state('root.profile.addPhoto', {
         url: '/addPhoto',
         templateUrl: 'templates/addPhoto.tpl.html',

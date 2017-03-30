@@ -1,18 +1,24 @@
-function HomeController ($http, $state, SERVER){
+function HomeController($http, $state, SERVER) {
 
-  let vm = this;
+    let vm = this;
+    vm.allUsers = [];
+    vm.dogs = [];
 
-  function init () {
-   if($rootScope.loggedIn){
-     $http.get(`${SERVER_URL}/user/${$state.params.id}`).then(resp => {
-       console.log("at profile");
-     });
-   }else{
-     $state.go('signup');
-   }
- }
-
- init();
+    function init() {
+      console.log("working")
+        $http.get(`${SERVER}/getUsers`)
+            .then(function(response) {
+                vm.allUsers = response.data;
+                console.log(response, "You got data!");
+                console.log(vm.allUsers);
+            })
+            .catch(function(error) {
+                console.log(error);
+            })
+    }
+      init();
 }
 
+
+HomeController.$inject=['$http', '$state', 'SERVER'];
 export default HomeController;
