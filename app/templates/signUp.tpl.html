@@ -1,14 +1,36 @@
+<div class="navbar">
+    <div class="navTitle">BarkSpark</div>
+    <form class="searchBar">
+      <input type="text" placeholder="Search for your perfect match" ng-model="userInput"  ng-show="loggedIn"/>
+      <button ng-click="filterButton(userInput)"  ng-show="loggedIn"><i class="fa fa-search" aria-hidden="true"></i></button>
+    </form>
+    <div class="loginLogoutContainer">
+    <form class="login" ng-show="!loggedIn">
+      <a href = "#!/login"><button>Log-In</button></a>
+    </form>
+    <form class="logout" ng-show="loggedIn" ng-submit="logout()">
+      <button>Log-Out</button>
+    </form>
+  </div>
+  </div>
+
+
+  
+
 <div class="signUpBackgroundImage">
     <div class="signUpContainer">
         <div class="signUpQuote">
             Puppy Love Awaits
         </div>
-        <form class="signUp" ng-submit="signUp(data)">
-            <input type="email" placeholder="Email" ng-model="data.email">
-            <input type="text" placeholder="Username" ng-model="data.username">
-            <input type="password" placeholder="Password" ng-model="data.password">
-            <input type="date" placeholder="mm/dd/yyyy" ng-model="data.birthday"><br><br>
-            <button>Sign Up!</button>
-        </form>
+        <div class="formContainer">
+            <form class="signUp">
+                <input type="email" placeholder="Email" ng-model="data.email">
+                <input type="text" placeholder="Username" ng-model="data.username">
+                <input type="password" placeholder="Password" ng-model="data.password">
+                <input type="date" placeholder="mm/dd/yyyy" ng-model="data.birthday"><br><br>
+                <button class = "signUpButton" ng-click="signUp(data)">Sign Up!</button><br></br>
+            </form>
+            <a href="#!/login"><button class = "alreadyMember">Already a member? Click <b>Here</b> to login.</button></a>
+        </div>
     </div>
-  </div>
+</div>
