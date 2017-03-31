@@ -32,19 +32,14 @@
 </div>
 <div ui-view></div>
 <div class="feed">
-    <div class="addPhotoPostButton">
-        <a href="#!/profile/{{ProfileController.currentUser.id}}/addPhoto">
-            <i class="fa fa-camera-retro" aria-hidden="true"></i>
-        </a>
-    </div>
     <div class="addTextPostButton">
         <a href="#!/profile/{{ProfileController.currentUser.id}}/addText">
             <i class="fa fa-commenting-o" aria-hidden="true"></i>
         </a>
     </div>
-    <div class="feedContent" ng-repeat="photo in ProfileController.photos">
-        <img ng-src="{{photo.photoUrl}}" />
-        <p class="caption">{{photo.caption}}</p>
+    <div class="feedContent" ng-repeat="post in ProfileController.currentUser.Posts">
+      <img ng-src="{{post.photoUrl}}" ng-show="post.photoUrl">
+      <div class="caption" ng-show="post.body">{{post.body}}</div>
     </div>
 
 </div>
