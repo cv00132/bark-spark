@@ -8,6 +8,7 @@ function ProfileController ($http, $state, SERVER, $location){
   vm.backToProfile = backToProfile;
   vm.postText = postText;
   vm.addDog = addDog;
+  vm.editUserInfo = editUserInfo;
 
   function init() {
     $http.get(`${SERVER}/user/${$state.params.id}`)
@@ -51,9 +52,20 @@ function ProfileController ($http, $state, SERVER, $location){
     })
   }
 
-  function addDog(dog) {
+  function editUserInfo(data) {
     console.log("working")
-    console.log(dog);
+    $http.put(`${SERVER}/user/${$state.params.id}`, data)
+    .then(function(){
+      console.log("info edited");
+      backToProfile();
+      $state.reload();
+    })
+    .catch(function(error){
+      console.log(error);
+    })
+  }
+
+  function addDog(dog) {
     $http.post(`${SERVER}/${$state.params.id}/addDog`, dog)
     .then(function(){
       console.log("hooray there's a new dog!");
@@ -65,6 +77,5 @@ function ProfileController ($http, $state, SERVER, $location){
     })
   }
 }
-
 ProfileController.$inject=['$http', '$state', 'SERVER', '$location'];
 export default ProfileController;

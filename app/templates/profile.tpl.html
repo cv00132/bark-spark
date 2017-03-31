@@ -5,7 +5,7 @@
               <i class="fa fa-paw" aria-hidden="true"></i>
           </a>
       </div>
-        <div class="profilePicture"><img ng-src="{{ProfileController.currentUser.profilePic}}" /></div>
+        <div class="profilePicture"><a href="#!/profile/{{ProfileController.currentUser.id}}/editUser"><img ng-src="{{ProfileController.currentUser.profilePic}}" /></a></div>
         <div class="profileName">{{ProfileController.currentUser.username}}<br/>{{ProfileController.currentUser.location}}</div>
         <div class="dogContainer">
             <div class="dogPicture" ng-repeat="dog in ProfileController.dogs | limitTo:3">
