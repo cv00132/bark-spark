@@ -118,17 +118,26 @@ body{
   clear:both;
 }
 
+  .notAUserButton{
+    margin-left: 23%;
+    margin-top: 5%;
+  }
+
 .signUpContainer{
   border-radius: 5px;
-  height: 450px;
+  height: 525px;
   width: 35%;
   margin: auto;
-  margin-top: 8%;
+  margin-top: 5%;
   opacity: .4;
   transition: all .5s ease-in-out;
   text-shadow: 1px 1px 2px black;
   box-shadow: 5px 5px 20px black;
   background: rgba(50, 50, 50, .5);
+
+  .alreadyMember{
+    margin-right: 30%;
+  }
 
   .signUpQuote{
     text-align: center;
@@ -160,7 +169,7 @@ body{
     border:1px solid rgba(50, 50, 50, .5);
     background: #E79C67;
     color:white;
-    margin-left: 40%;
+    margin-bottom: 2%;
   }
 
   button:hover{
@@ -172,9 +181,13 @@ body{
     margin-left: 40%;
   }
 
-  .notAUserButton{
-    margin-left: 24%;
-    margin-top: 5%;
+  .signUpButton{
+    margin-left: 40%
+  }
+
+  .alreadyMember{
+    margin-left: 13%;
+    width: 75%;
   }
 }
 
@@ -447,7 +460,7 @@ body{
   }
 }
 
-.addDogModalBackground{
+.editUserModalBackground{
   background: rgba(50, 50, 50, .9);
   width:100%;
   height:100%;
@@ -455,7 +468,72 @@ body{
   z-index:1000;
 }
 
+.editUserModal{
+  height: 375px;
+  width: 40%;
+  border: 1px solid grey;
+  border-radius: 5px;
+  background: white;
+  margin: auto;
+  position:fixed;
+  left:30%;
+  top:20%;
+  box-shadow: 5px 5px 100px black;
 
+  .editUserModalTitle{
+    width: 100%;
+    height:8%;
+    margin-left: 5%;
+    margin-top: 3%;
+  }
+
+  .postButton{
+    float:right;
+    margin-right: 5%;
+  }
+
+  .cancelButton{
+    float:left;
+    margin-left: 5%;
+  }
+
+  form{
+    border-top: 2px dotted grey;
+    background: white;
+    border-bottom: 2px dotted grey;
+  }
+
+  input{
+    border:1px solid white;
+    width:100%;
+    padding-left: 3%;
+    margin-top: 3%;
+  }
+
+  textarea{
+    margin-top: 7%;
+    border-radius: 5px;
+    border: 1px solid white;
+    width:100%;
+    padding-left: 3%;
+    outline: none;
+  }
+
+  button{
+    margin-top: 3%;
+    border:1px solid #E79C67;
+    border-radius: 5px;
+    background: white;
+    width:15%;
+    opacity: .3;
+  }
+
+  button:hover{
+    opacity: 1;
+    background:#E79C67;
+    color:white;
+  }
+}
 
 .addDogModalBackground{
   background: rgba(50, 50, 50, .9);

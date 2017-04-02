@@ -8,13 +8,13 @@ function Config($stateProvider, $urlRouterProvider) {
           controller: 'UserController'
         })
 
-        .state('root.signUp', {
+        .state('signUp', {
             url: '/signUp',
             templateUrl: 'templates/signUp.tpl.html',
             controller: 'UserController'
         })
 
-        .state('root.login', {
+        .state('login', {
           url: '/login',
           templateUrl: 'templates/login.tpl.html',
           controller: 'UserController'
@@ -29,6 +29,12 @@ function Config($stateProvider, $urlRouterProvider) {
         .state('root.profile', {
           url: '/profile/:id',
           templateUrl: 'templates/profile.tpl.html',
+          controller: 'ProfileController as ProfileController'
+        })
+
+        .state('root.profile.editUser', {
+          url: '/editUser',
+          templateUrl: 'templates/editUser.tpl.html',
           controller: 'ProfileController as ProfileController'
         })
 

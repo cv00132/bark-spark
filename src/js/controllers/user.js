@@ -2,6 +2,13 @@ import SERVER from '../server'
 
 function UserController($scope, $http, SERVER, $cookies, $state, $rootScope, $location) {
 
+  $scope.theFilter = "";
+  $scope.userInput = "";
+
+  $scope.filterButton = function(userInput){
+    $scope.theFilter = $scope.userInput;
+  }
+
     $scope.signUp = function(data) {
         $http.post(`${SERVER}/signUp`, data)
             .then(function(response) {
