@@ -29,19 +29,18 @@ function ProfileController ($http, $state, SERVER, $location){
       $state.go(`root.profile`);
   }
 
-  function postPhoto(photo) {
-      if(vm.currentUser.id === $state.params.id) {
-          $http.post(`${SERVER}/photo`, photo)
-          .then(function(){
-              console.log("successfully posted the photo");
-              backToProfile();
-              //$state.reload();
-          })
-          .catch(function(error){
-              console.log(error);
-          })
-      }
-  }
+  // function postPhoto(photo) {
+  //         $http.post(`${SERVER}/photo`, photo)
+  //         .then(function(){
+  //             console.log("successfully posted the photo");
+  //             backToProfile();
+  //             //$state.reload();
+  //         })
+  //         .catch(function(error){
+  //             console.log(error);
+  //         })
+  //     }
+  // }
 
   function postText(post) {
     $http.post(`${SERVER}/post`, post)

@@ -28,15 +28,15 @@ function UserController($scope, $http, SERVER, $cookies, $state, $rootScope, $lo
 
 
     $scope.login = function(data) {
-      $http.post(`${SERVER}/login`, data)
-      .then(function(response){
-      console.log(response);
-      $rootScope.loggedIn = true;
-      $cookies.put('access-token', response.data.token);
-      $cookies.put('userId', response.data.user.id);
-      $http.defaults.headers.common['access-token'] = response.data.token;
-      console.log(response.data.user.id, response.data.token, "you logged in");
-      $location.path(`/profile/${response.data.user.id}`);
+        $http.post(`${SERVER}/login`, data)
+        .then(function(response){
+            console.log(response);
+            $rootScope.loggedIn = true;
+            $cookies.put('access-token', response.data.token);
+            $cookies.put('userId', response.data.user.id);
+            $http.defaults.headers.common['access-token'] = response.data.token;
+            console.log(response.data.user.id, response.data.token, "you logged in");
+            $location.path(`/profile/${response.data.user.id}`);
     })
     .catch(function(error){
       console.log(error, "you suck");
@@ -50,9 +50,6 @@ function UserController($scope, $http, SERVER, $cookies, $state, $rootScope, $lo
     $location.path(`/login`)
   }
 }
-
-
-
 
 UserController.$inject = ['$scope', '$http', 'SERVER', '$cookies', '$state', '$rootScope', '$location'];
 

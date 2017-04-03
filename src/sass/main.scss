@@ -204,10 +204,12 @@ body{
   float:left;
   margin-bottom: 3%;
 
+
   .homeUser{
     float:left;
     height:100%;
     width:70%;
+    box-shadow: 0px 0px 25px 0px grey;
 
     .homeUserPhoto{
       height:70%;
@@ -287,6 +289,14 @@ body{
     a:hover{
       color:#E79C67;
     }
+  }
+
+  .chat{
+    float: right;
+    transform: rotate(45deg);
+    width: 16%;
+    filter: opacity(48%);
+    display: inline-block;
   }
 
   .profilePictureContainer{

@@ -7,6 +7,7 @@ import Config from './config';
 import SERVER from './server';
 import setup from './setup';
 
+import FirebaseController from './controllers/firebase.js';
 import UserController from './controllers/user.js';
 import ProfileController from './controllers/profile.js';
 import HomeController from './controllers/home.js';
@@ -18,7 +19,7 @@ var config = {
   storageBucket: "barkspark-f004c.appspot.com",
   messagingSenderId: "781730587867"
 };
-firebase.initializeApp(config)
+firebase.initializeApp(config);
 
 const messaging = firebase.messaging();
 messaging.requestPermission()
@@ -50,11 +51,32 @@ messaging.requestPermission()
     console.log('Error Occured');
 });
 
+ messaging.onTokenRefresh(function() {
+    messaging.getToken()
+    .then(function(refreshedToken) {
+      console.log('Token refreshed.');
+      // Indicate that the new Instance ID token has not yet been sent to the
+      // app server.
+      setTokenSentToServer(false);
+      // Send Instance ID token to app server.
+      sendTokenToServer(refreshedToken);
+      // [START_EXCLUDE]
+      // Display new Instance ID token and clear UI of all previous messages.
+      resetUI();
+      // [END_EXCLUDE]
+    })
+    .catch(function(err) {
+      console.log('Unable to retrieve refreshed token ', err);
+      showToken('Unable to retrieve refreshed token ', err);
+    });
+  });
+
 angular
     .module('app', ['ui.router', 'ngCookies', 'firebase'])
     .config(Config)
     .run (setup)
     .constant('SERVER', SERVER)
+    .controller('FirebaseController', FirebaseController)
     .controller('UserController', UserController)
     .controller('ProfileController', ProfileController)
     .controller('HomeController', HomeController);

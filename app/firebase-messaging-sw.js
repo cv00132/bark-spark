@@ -14,9 +14,9 @@ var config = {
   messagingSenderId: "781730587867"
 };
 firebase.initializeApp(config)
-// firebase.initializeApp({
-//   'messagingSenderId': 'YOUR-SENDER-ID'
-// });
+firebase.initializeApp({
+  'messagingSenderId': '781730587867'
+});
 
 // Retrieve an instance of Firebase Messaging so that it can handle background
 // messages.
