@@ -1,51 +1,64 @@
-<div class="userContainer">
-    <div class="profilePictureContainer">
-      <div class="addDogButton">
-          <a href="#!/profile/{{ProfileController.currentUser.id}}/addDog">
-              <i class="fa fa-paw" aria-hidden="true"></i>
-          </a>
-      </div>
-        <div class="profilePicture"><a href="#!/profile/{{ProfileController.currentUser.id}}/editUser"><img ng-src="{{ProfileController.currentUser.profilePic}}" /></a></div>
-        <div class="profileName">{{ProfileController.currentUser.username}}<br/>{{ProfileController.currentUser.location}}</div>
-        <div class="dogContainer">
-            <div class="dogPicture" ng-repeat="dog in ProfileController.dogs | limitTo:3">
-                <img ng-src="{{dog.picture}}" />
-                <div class="dogName">
-                    {{dog.name}}
+<div class="profileContainer" ng-model="currentUser" ng-init="currentUser = true">
+    <div class="userContainer">
+        <div class="profilePictureContainer">
+          <div class="addDogButton" ng-if="currentUser">
+              <a href="#!/profile/{{ProfileController.currentUser.id}}/addDog">
+                  <i class="fa fa-paw" aria-hidden="true"></i>
+              </a>
+          </div>
+          <div class="requestChat">
+              <a href="#">
+                  <img src="./images/dogbone.png" alt="" class="chat">
+              </a>
+          </div>
+            <div class="profilePicture">
+                <a href="#!/profile/{{ProfileController.currentUser.id}}/editUser">
+                <img ng-src="{{ProfileController.currentUser.profilePic}}" /></a>
+            </div>
+            <div class="profileName">
+                {{ProfileController.currentUser.username}}
+                <br/>
+                {{ProfileController.currentUser.location}}
+            </div>
+            <div class="dogContainer">
+                <div class="dogPicture" ng-repeat="dog in ProfileController.dogs | limitTo:3">
+                    <img ng-src="{{dog.picture}}" />
+                    <div class="dogName">
+                        {{dog.name}}
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="dogTags">
+            <ul>
+              <li>tag</li>
+            </ul>
+        </div>
+        <div class="matchContainer" ng-if="currentUser"> matches
+        </div>
     </div>
-    <div class="dogTags">
-        <ul>
-          <li>tag</li>
-        </ul>
+    <div class="userAboutMe">
+        <b>{{ProfileController.currentUser.username}}</b> <br>
+        About me: {{ProfileController.currentUser.description}}
     </div>
-    <div class="matchContainer"> matches
+    <div class="dogAboutMe" ng-repeat="dog in ProfileController.dogs | limitTo:3">
+        <b>{{dog.name}}</b> <br> Breed: {{dog.breed}} <br> Age: {{dog.age}} <br> About: {{dog.description}}
     </div>
-</div>
-<div class="userAboutMe">
-    <b>{{ProfileController.currentUser.username}}</b> <br><br> About me: {{ProfileController.currentUser.description}}
-</div>
-<div class="dogAboutMe" ng-repeat="dog in ProfileController.dogs | limitTo:3">
-    <b>{{dog.name}}</b> <br><br> Breed: {{dog.breed}} <br> Age: {{dog.age}} <br> About: {{dog.description}}
-</div>
-<div ui-view></div>
-<div class="feed">
-    <div class="addPhotoPostButton">
-        <a href="#!/profile/{{ProfileController.currentUser.id}}/addPhoto">
-            <i class="fa fa-camera-retro" aria-hidden="true"></i>
-        </a>
+    <div ui-view></div>
+    <div class="feed">
+        <div class="addPhotoPostButton" ng-if="currentUser">
+            <a href="#!/profile/{{ProfileController.currentUser.id}}/addPhoto">
+                <i class="fa fa-camera-retro" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="addTextPostButton" ng-if="currentUser"a>
+            <a href="#!/profile/{{ProfileController.currentUser.id}}/addText">
+                <i class="fa fa-commenting-o" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="feedContent" ng-repeat="photo in ProfileController.photos">
+            <img ng-src="{{photo.photoUrl}}" />
+            <p class="caption">{{photo.caption}}</p>
+        </div>
     </div>
-    <div class="addTextPostButton">
-        <a href="#!/profile/{{ProfileController.currentUser.id}}/addText">
-            <i class="fa fa-commenting-o" aria-hidden="true"></i>
-        </a>
-    </div>
-    <div class="feedContent" ng-repeat="photo in ProfileController.photos">
-        <img ng-src="{{photo.photoUrl}}" />
-        <p class="caption">{{photo.caption}}</p>
-    </div>
-
-</div>
 </div>

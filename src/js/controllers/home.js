@@ -3,6 +3,7 @@ function HomeController($http, $state, SERVER) {
     let vm = this;
     vm.allUsers = [];
     vm.dogs = [];
+    vm.getAge = getAge;
 
     function init() {
       console.log("working")
@@ -17,6 +18,17 @@ function HomeController($http, $state, SERVER) {
             })
     }
       init();
+
+    function getAge(birthday) {
+        var today = new Date();
+        var birthDate = new Date(birthday);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var month = today.getMonth() - birthDate.getMonth();
+        if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
+    }
 }
 
 
