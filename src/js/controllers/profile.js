@@ -2,6 +2,7 @@ function ProfileController ($http, $state, SERVER, $location){
 
   let vm = this;
 
+  vm.currentUser = [];
   vm.dogs=[];
   vm.photos=[];
   vm.postPhoto = postPhoto;
@@ -30,16 +31,16 @@ function ProfileController ($http, $state, SERVER, $location){
   }
 
   function postPhoto(photo) {
-    $http.post(`${SERVER}/photo`, photo)
-    .then(function(){
-      console.log("successfully posted the photo");
-      backToProfile();
-      $state.reload();
-    })
-    .catch(function(error){
-      console.log(error);
-    })
-  }
+          $http.post(`${SERVER}/post`, photo)
+          .then(function(){
+              console.log("successfully posted the photo");
+              backToProfile();
+              //$state.reload();
+          })
+          .catch(function(error){
+              console.log(error);
+          })
+      }
 
   function addPost(body) {
     $http.post(`${SERVER}/${$state.params.id}/post`, body)
