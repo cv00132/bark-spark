@@ -62,7 +62,7 @@ function Config($stateProvider, $urlRouterProvider) {
       })
 
       $urlRouterProvider.when('', '/login');
-      $urlRouterProvider.otherwise('/not-found');
+      //$urlRouterProvider.otherwise('/not-found');
 }
 
 
