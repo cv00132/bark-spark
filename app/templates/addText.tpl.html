@@ -1,10 +1,10 @@
 <div class="addTextModalBackground">
-<div class="addTextModal">
-  <div class="addTextModalTitle">{{ProfileController.currentUser.username}}</div>
-  <form class="addText">
-    <textarea name="description" rows="7" cols="40" placeholder="Say something" ng-model="post.body"></textarea>
-    <button class = "postButton" ng-click="ProfileController.postText(body)">Post</button>
-    <button class = "cancelButton" ng-click="ProfileController.backToProfile()">Cancel</button>
-  </form>
-</div>
+    <div class="addTextModal">
+      <div class="addTextModalTitle">{{ProfileController.currentUser.username}}</div>
+      <form class="addText">
+        <textarea name="description" rows="7" cols="40" placeholder="Say something" ng-model="post.body"></textarea>
+        <button class = "postButton" ng-click="ProfileController.addText(post)">Post</button>
+        <button class = "cancelButton" ng-click="ProfileController.backToProfile()">Cancel</button>
+      </form>
+    </div>
 </div>
