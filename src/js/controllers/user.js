@@ -27,8 +27,8 @@ function UserController($scope, $http, SERVER, $cookies, $state, $rootScope, $lo
     // }
 
 
-    $scope.login = function(data) {
-        $http.post(`${SERVER}/login`, data)
+    $scope.login = function(data) { 
+       $http.post(`${SERVER}/login`, data)
         .then(function(response){
             console.log(response);
             $rootScope.loggedIn = true;
