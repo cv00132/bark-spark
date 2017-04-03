@@ -15,7 +15,7 @@
   </div>
 
 
-  
+
 
 <div class="signUpBackgroundImage">
     <div class="signUpContainer">
@@ -27,7 +27,7 @@
                 <input type="email" placeholder="Email" ng-model="data.email">
                 <input type="text" placeholder="Username" ng-model="data.username">
                 <input type="password" placeholder="Password" ng-model="data.password">
-                <input type="date" placeholder="mm/dd/yyyy" ng-model="data.birthday"><br><br>
+                <input type="date" placeholder="mm/dd/yyyy" ng-model="data.birthday" max="{{minAge | date:'mm/dd/yyyy'}}"><br><br>
                 <button class = "signUpButton" ng-click="signUp(data)">Sign Up!</button><br></br>
             </form>
             <a href="#!/login"><button class = "alreadyMember">Already a member? Click <b>Here</b> to login.</button></a>

@@ -1,7 +1,7 @@
 <div class="homeUserContainer" ng-repeat="user in HomeController.allUsers | filter:theFilter">
     <div class="homeUser">
         <div class="homeUserPhoto"><a href ="#!/profile/{{ user.id }}"><img ng-src="{{user.profilePic}}"/></a></div>
-        <div class="homeUserInfo">{{user.username}}<br><br>Age: {{user.DOB}}<br>Location: {{user.location}}</div>
+        <div class="homeUserInfo">{{user.username}}<br><br>Age: {{ HomeController.getAge(user.DOB) }}<br>Location: {{user.location}}</div>
     </div>
     <div class="homeDog" ng-repeat="dog in user.Dogs | limitTo:3">
         <div class="homeDogPhoto"><img ng-src = "{{dog.picture}}"/></div><br>
