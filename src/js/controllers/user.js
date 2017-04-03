@@ -26,6 +26,7 @@ function UserController($scope, $http, SERVER, $cookies, $state, $rootScope, $lo
       console.log(response);
       $rootScope.loggedIn = true;
       $cookies.put('access-token', response.data.token);
+      $cookies.put('userId',response.data.user.id);
       $http.defaults.headers.common['access-token'] = response.data.token;
       console.log(response.data.token, "you logged in");
       $location.path(`/profile/${response.data.user.id}`);

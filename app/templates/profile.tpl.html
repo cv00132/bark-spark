@@ -5,6 +5,9 @@
               <i class="fa fa-paw" aria-hidden="true"></i>
           </a>
       </div>
+      <div class = "matchButtonContainer">
+        <div class = "matchButton" ng-click="ProfileController.newMatch()"><i class="fa fa-heart-o" aria-hidden="true"></i></div>
+      </div>
         <div class="profilePicture"><a href="#!/profile/{{ProfileController.currentUser.id}}/editUser"><img ng-src="{{ProfileController.currentUser.profilePic}}" /></a></div>
         <div class="profileName">{{ProfileController.currentUser.username}}<br/>{{ProfileController.currentUser.location}}</div>
         <div class="dogContainer">

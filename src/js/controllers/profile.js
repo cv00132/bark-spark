@@ -9,6 +9,7 @@ function ProfileController ($http, $state, SERVER, $location){
   vm.addDog = addDog;
   vm.editUserInfo = editUserInfo;
   vm.addPost = addPost;
+  vm.newMatch = newMatch;
 
   function init() {
     $http.get(`${SERVER}/user/${$state.params.id}`)
@@ -53,7 +54,6 @@ function ProfileController ($http, $state, SERVER, $location){
   }
 
   function editUserInfo(data) {
-    console.log("working")
     $http.put(`${SERVER}/user/${$state.params.id}`, data)
     .then(function(){
       console.log("info edited");
@@ -74,6 +74,15 @@ function ProfileController ($http, $state, SERVER, $location){
     })
     .catch(function(error){
       console.log(error);
+    })
+  }
+
+  function newMatch(data) {
+    console.log("working")
+    $http.post(`${SERVER}/${$state.params.id}/match`, data)
+    .then(function(response){
+      console.log("match added");
+      backToProfile();
     })
   }
 }

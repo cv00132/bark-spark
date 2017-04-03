@@ -283,7 +283,7 @@ body{
   color:grey;
 
   .addDogButton{
-    float:left;
+    margin-top: 5%;
     a{
       color:grey;
       font-size: 190%;
@@ -614,80 +614,6 @@ body{
   }
 }
 
-.addTextModalBackground{
-  background: rgba(50, 50, 50, .9);
-  width:100%;
-  height:100%;
-  position:fixed;
-  z-index:1000;
-}
-
-.addTextModal{
-  height: 270px;
-  width: 40%;
-  border: 1px solid grey;
-  border-radius: 5px;
-  background: white;
-  margin: auto;
-  position:fixed;
-  left:30%;
-  top:30%;
-  box-shadow: 5px 5px 100px black;
-
-  .addTextModalTitle{
-    width: 100%;
-    height: 10%;
-    margin-left: 5%;
-    margin-top: 2%;
-    margin-bottom: 1%;
-  }
-
-  .addText{
-    padding-top: 0px;
-  }
-
-  .postButton{
-    float:right;
-    margin-right: 5%;
-  }
-
-  .cancelButton{
-    float:left;
-    margin-left: 5%;
-  }
-
-  form{
-    padding-top: 12%;
-    border-top: 2px dotted grey;
-    background: white;
-    border-bottom: 2px dotted grey;
-  }
-
-  textarea{
-    border-radius: 5px;
-    border: 1px solid white;
-    width:100%;
-    padding-left: 3%;
-    padding-top: 2%;
-    outline: none;
-  }
-
-  button{
-    margin-top: 3%;
-    border:1px solid #E79C67;
-    border-radius: 5px;
-    background: white;
-    width:15%;
-    opacity: .3;
-  }
-
-  button:hover{
-    opacity: 1;
-    background:#E79C67;
-    color:white;
-  }
-}
-
 .addPhotoModalBackground{
   background: rgba(50, 50, 50, .9);
   width:100%;
@@ -772,7 +698,7 @@ body{
 }
 
 .addTextModal{
-  height: 270px;
+  height: 350px;
   width: 40%;
   border: 1px solid grey;
   border-radius: 5px;
@@ -810,6 +736,13 @@ body{
     border-top: 2px dotted grey;
     background: white;
     border-bottom: 2px dotted grey;
+  }
+
+  input{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border: 1px solid white;
+    padding-left: 3%;
   }
 
   textarea{
@@ -867,4 +800,9 @@ body{
   border-radius: 5px;
   background: #E79C67;
   color:white;
+}
+
+.matchButtonContainer{
+  float:left;
+  margin-left: 5%;
 }
