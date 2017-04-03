@@ -5,12 +5,11 @@ function ProfileController ($http, $state, SERVER, $location){
   vm.currentUser = [];
   vm.dogs=[];
   vm.photos=[];
+  vm.addText = addText;
   vm.addPhoto = addPhoto;
   vm.backToProfile = backToProfile;
-  vm.addText = addText;
   vm.addDog = addDog;
   vm.editUserInfo = editUserInfo;
-  vm.addPost = addPost;
   vm.newMatch = newMatch;
 
   function init() {
