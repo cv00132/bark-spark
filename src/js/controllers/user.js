@@ -20,6 +20,13 @@ function UserController($scope, $http, SERVER, $cookies, $state, $rootScope, $lo
             });
     };
 
+    // $scope.validateAge = function($scope) {
+    //     var today = new Date();
+    //     var minAge = 18;
+    //     $scope.minAge = new Date(today.getFullYear() - minAge, today.getMonth(), today.getDate());
+    // }
+
+
     $scope.login = function(data) {
       $http.post(`${SERVER}/login`, data)
       .then(function(response){
@@ -38,13 +45,11 @@ function UserController($scope, $http, SERVER, $cookies, $state, $rootScope, $lo
 
   $scope.logout = function(){
     $cookies.remove('access-token');
+    $cookies.remove('userId');
     $rootScope.loggedIn = false;
     $location.path(`/login`)
+  }
 }
-}
-
-
-
 
 UserController.$inject = ['$scope', '$http', 'SERVER', '$cookies', '$state', '$rootScope', '$location'];
 
