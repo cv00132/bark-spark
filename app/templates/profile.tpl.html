@@ -52,14 +52,14 @@
                 <i class="fa fa-camera-retro" aria-hidden="true"></i>
             </a>
         </div>
-        <div class="addTextPostButton" ng-if="currentUser"a>
+        <div class="addTextPostButton" ng-if="currentUser">
             <a href="#!/profile/{{ProfileController.currentUser.id}}/addText">
                 <i class="fa fa-commenting-o" aria-hidden="true"></i>
             </a>
         </div>
-        <div class="feedContent" ng-repeat="photo in ProfileController.photos">
-            <img ng-src="{{photo.photoUrl}}" />
-            <p class="caption">{{photo.caption}}</p>
+        <div class="feedContent" ng-repeat="post in ProfileController.currentUser.Posts">
+            <img ng-src="{{post.photoUrl}}" ng-show="post.photoUrl" />
+            <p class="caption" ng-show="post.body">{{post.body}}</p>
         </div>
     </div>
 </div>
