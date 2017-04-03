@@ -7,9 +7,14 @@ function ProfileController ($http, $state, SERVER, $location){
   vm.photos=[];
   vm.addPhoto = addPhoto;
   vm.backToProfile = backToProfile;
+<<<<<<< HEAD
   vm.addText = addText;
+=======
+>>>>>>> f92413dbe3529112d8851b2ae3f05008020b9495
   vm.addDog = addDog;
   vm.editUserInfo = editUserInfo;
+  vm.addPost = addPost;
+  vm.newMatch = newMatch;
 
   function init() {
     $http.get(`${SERVER}/user/${$state.params.id}`)
@@ -41,10 +46,15 @@ function ProfileController ($http, $state, SERVER, $location){
           })
       }
 
+<<<<<<< HEAD
   function addText(post) {
     $http.post(`${SERVER}/${$state.params.id}/post`, post)
+=======
+  function addPost(body) {
+    $http.post(`${SERVER}/${$state.params.id}/post`, body)
+>>>>>>> f92413dbe3529112d8851b2ae3f05008020b9495
     .then(function(){
-      console.log("successfully posted the textPost");
+      console.log("successfully posted the textPost", body);
       backToProfile();
       $state.reload();
     })
@@ -54,7 +64,6 @@ function ProfileController ($http, $state, SERVER, $location){
   }
 
   function editUserInfo(data) {
-    console.log("working")
     $http.put(`${SERVER}/user/${$state.params.id}`, data)
     .then(function(){
       console.log("info edited");
@@ -68,13 +77,22 @@ function ProfileController ($http, $state, SERVER, $location){
 
   function addDog(dog) {
     $http.post(`${SERVER}/${$state.params.id}/addDog`, dog)
-    .then(function(){
+    .then(function(response){
       console.log("hooray there's a new dog!");
       backToProfile();
       $state.reload();
     })
     .catch(function(error){
       console.log(error);
+    })
+  }
+
+  function newMatch(data) {
+    console.log("working")
+    $http.post(`${SERVER}/${$state.params.id}/match`, data)
+    .then(function(response){
+      console.log("match added");
+      backToProfile();
     })
   }
 }
