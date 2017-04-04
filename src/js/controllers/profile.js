@@ -95,10 +95,13 @@ function ProfileController ($http, $state, SERVER, $location){
   }
 
   function newMatch() {
-    $http.post(`${SERVER}/${$state.params.id}/match`)
+    $http.post(`${SERVER}/user/${$state.params.id}/match`)
     .then(function(response){
       console.log("match added");
-      backToProfile();
+      $state.reload();
+    })
+    .catch(function(error){
+      console.log(error);
     })
   }
 }

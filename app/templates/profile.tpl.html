@@ -26,11 +26,6 @@
                 </div>
             </div>
         </div>
-        <div class="dogTags">
-            <ul>
-                <li ng-repeat="tag in ProfileController.tags">{{tag.}}</li>
-            </ul>
-        </div>
         <div class="matchContainer" ng-if="currentUser">
             <div class="matchContainerTitle">Matches</div>
             <div class="matchName" ng-repeat="match in ProfileController.matches">
