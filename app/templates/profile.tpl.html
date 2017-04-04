@@ -7,7 +7,7 @@
                 </a>
             </div>
             <div class="requestChat">
-                <img src="./images/dogbone.png" alt="" class="chat" ng-click="ProfileController.boneMatch()">
+                <img src="./images/dogbone.png" alt="" class="chat" ng-click="ProfileController.newMatch()">
             </div>
             <div class="profilePicture">
                 <a href="#!/profile/{{ProfileController.currentUser.id}}/editUser">
@@ -28,7 +28,7 @@
         </div>
         <div class="dogTags">
             <ul>
-                <li>tag</li>
+                <li ng-repeat="tag in ProfileController.tags">{{tag.}}</li>
             </ul>
         </div>
         <div class="matchContainer" ng-if="currentUser">

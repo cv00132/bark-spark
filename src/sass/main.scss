@@ -1,11 +1,16 @@
 *{
   button:focus {outline:0;}
   input:focus {outline:0;}
+
   box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
   font-family: 'Abel', sans-serif;
 }
+
+tags-input {
+    border: 1px solid black;
+  }
 
 body{
   .signUpBackgroundImage{
@@ -523,6 +528,12 @@ body{
     margin-left: 5%;
     margin-top: 3%;
   }
+
+  .tagsContainer{
+    color:#E79C67;
+    text-decoration: none;
+    width:100%;
+}
 
   .postButton{
     float:right;
