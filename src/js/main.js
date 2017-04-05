@@ -10,7 +10,7 @@ import setup from './setup';
 import UserController from './controllers/user.js';
 import ProfileController from './controllers/profile.js';
 import HomeController from './controllers/home.js';
-// import SocketController from './controllers/socket.js';
+import SocketController from './controllers/socket.js';
 
 
 angular
@@ -20,5 +20,5 @@ angular
     .constant('SERVER', SERVER)
     .controller('UserController', UserController)
     .controller('ProfileController', ProfileController)
-    .controller('HomeController', HomeController);
-//    .controller('SocketController', SocketController);
+    .controller('HomeController', HomeController)
+    .controller('SocketController', SocketController);
