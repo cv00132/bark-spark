@@ -42,7 +42,7 @@
 </div>
 </div>
 <div class="userAboutMe">
-    <b>{{ProfileController.currentUser.username}}</b> <br><br> About me: {{ProfileController.currentUser.description}}
+    <b>{{ProfileController.currentUser.username}}</b><br><br><b>Age:</b> {{ ProfileController.currentUser.DOB }}<br> <b>About me:</b> {{ProfileController.currentUser.description}}
 </div>
 <div class="dogAboutMe" ng-repeat="dog in ProfileController.dogs | limitTo:3">
     <b>{{dog.name}}</b> <br><br> Breed: {{dog.breed}} <br> Age: {{dog.age}} <br> About: {{dog.description}}
