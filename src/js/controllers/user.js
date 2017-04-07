@@ -19,6 +19,8 @@ function UserController($scope, $http, SERVER, $cookies, $state, $rootScope, $lo
                 console.log(error, "You Suck");
             });
     };
+// var userID = $cookies.get('userId')
+    // $scope.go('root.profile', { id:userID})
 
     // $scope.validateAge = function($scope) {
     //     var today = new Date();
@@ -27,16 +29,17 @@ function UserController($scope, $http, SERVER, $cookies, $state, $rootScope, $lo
     // }
 
 
-    $scope.login = function(data) { 
-       $http.post(`${SERVER}/login`, data)
-        .then(function(response){
-            console.log(response);
-            $rootScope.loggedIn = true;
-            $cookies.put('access-token', response.data.token);
-            $cookies.put('userId', response.data.user.id);
-            $http.defaults.headers.common['access-token'] = response.data.token;
-            console.log(response.data.user.id, response.data.token, "you logged in");
-            $location.path(`/profile/${response.data.user.id}`);
+    $scope.login = function(data) {
+      $http.post(`${SERVER}/login`, data)
+      .then(function(response){
+      console.log(response);
+      $rootScope.loggedIn = true;
+      $cookies.put('access-token', response.data.token);
+      $cookies.put('userId',response.data.user.id);
+      $cookies.put('username',response.data.user.username);
+      $http.defaults.headers.common['access-token'] = response.data.token;
+      console.log(response.data.token, "you logged in");
+      $location.path(`/profile/${response.data.user.id}`);
     })
     .catch(function(error){
       console.log(error, "you suck");

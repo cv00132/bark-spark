@@ -2,8 +2,9 @@
     <div class="navTitle"><a href="#!/home">BarkSpark</a></div>
     <form class="searchBar">
       <input type="text" placeholder="Search for your perfect match" ng-model="userInput"  ng-show="loggedIn"/>
-      <button ng-click="filterButton(userInput)"  ng-show="loggedIn"><i class="fa fa-search" aria-hidden="true"></i></button>
+      <span><button ng-click="filterButton(userInput)"  ng-show="loggedIn"><i class="fa fa-search" aria-hidden="true"></i></button></span>
     </form>
+    <!-- <div class = "backToProfile">Profile</div> -->
     <div class="loginLogoutContainer">
     <form class="login" ng-show="!loggedIn">
       <a href = "#!/login"><button>Log-In</button></a>

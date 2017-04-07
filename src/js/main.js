@@ -1,4 +1,5 @@
 import angular from 'angular';
+import 'ng-tags-input';
 import 'angular-ui-router';
 import 'angular-cookies';
 import 'angularfire';
@@ -72,7 +73,7 @@ messaging.requestPermission()
   });
 
 angular
-    .module('app', ['ui.router', 'ngCookies', 'firebase'])
+    .module('app', ['ui.router', 'ngCookies', 'firebase', 'ngTagsInput'])
     .config(Config)
     .run (setup)
     .constant('SERVER', SERVER)

@@ -5,12 +5,17 @@ function ProfileController ($http, $state, SERVER, $location){
   vm.currentUser = [];
   vm.dogs=[];
   vm.photos=[];
-  vm.addText = addText;
+  vm.tags=[];
+  vm.matches=[];
+  vm.getAge = getAge;
   vm.addPhoto = addPhoto;
   vm.backToProfile = backToProfile;
+  vm.addText = addText;
   vm.addDog = addDog;
+  vm.addTags = addTags;
   vm.editUserInfo = editUserInfo;
   vm.newMatch = newMatch;
+
 
   function init() {
     $http.get(`${SERVER}/user/${$state.params.id}`)
@@ -18,6 +23,8 @@ function ProfileController ($http, $state, SERVER, $location){
       vm.currentUser=response.data;
       vm.dogs=response.data.Dogs;
       vm.photos=response.data.Photos;
+      vm.tags=response.data.Tags;
+      vm.matches=response.data.Received;
       console.log(response, "you got data");
     })
     .catch(function(error){
@@ -25,6 +32,18 @@ function ProfileController ($http, $state, SERVER, $location){
     })
   }
   init();
+
+  function getAge(birthday) {
+      var today = new Date();
+      var birthDate = new Date(birthday);
+      console.log(birthday);
+      var age = today.getFullYear() - birthDate.getFullYear();
+      var month = today.getMonth() - birthDate.getMonth();
+      if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+      }
+      return age;
+  }
 
   function backToProfile(){
       $state.go(`root.profile`);
@@ -48,6 +67,16 @@ function ProfileController ($http, $state, SERVER, $location){
       console.log("successfully posted the textPost", body);
       backToProfile();
       $state.reload();
+    })
+    .catch(function(error){
+      console.log(error);
+    })
+  }
+
+  function addTags(input) {
+    $http.post(`${SERVER}/tag`, input)
+    .then(function(){
+      console.log("tag created");
     })
     .catch(function(error){
       console.log(error);
@@ -78,12 +107,14 @@ function ProfileController ($http, $state, SERVER, $location){
     })
   }
 
-  function newMatch(data) {
-    console.log("working")
-    $http.post(`${SERVER}/${$state.params.id}/match`, data)
+  function newMatch() {
+    $http.post(`${SERVER}/user/${$state.params.id}/match`)
     .then(function(response){
       console.log("match added");
-      backToProfile();
+      $state.reload();
+    })
+    .catch(function(error){
+      console.log(error);
     })
   }
 }

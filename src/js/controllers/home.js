@@ -7,7 +7,7 @@ function HomeController($http, $state, SERVER) {
 
     function init() {
       console.log("working")
-        $http.get(`${SERVER}/getUsers`)
+        $http.get(`${SERVER}/users`)
             .then(function(response) {
                 vm.allUsers = response.data;
                 console.log(response, "You got data!");
