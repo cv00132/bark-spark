@@ -7,6 +7,7 @@ function ProfileController ($http, $state, SERVER, $location){
   vm.photos=[];
   vm.tags=[];
   vm.matches=[];
+  vm.getAge = getAge;
   vm.addPhoto = addPhoto;
   vm.backToProfile = backToProfile;
   vm.addText = addText;
@@ -23,7 +24,7 @@ function ProfileController ($http, $state, SERVER, $location){
       vm.dogs=response.data.Dogs;
       vm.photos=response.data.Photos;
       vm.tags=response.data.Tags;
-      vm.matches=response.data.Matches;
+      vm.matches=response.data.Received;
       console.log(response, "you got data");
     })
     .catch(function(error){
@@ -31,6 +32,18 @@ function ProfileController ($http, $state, SERVER, $location){
     })
   }
   init();
+
+  function getAge(birthday) {
+      var today = new Date();
+      var birthDate = new Date(birthday);
+      console.log(birthday);
+      var age = today.getFullYear() - birthDate.getFullYear();
+      var month = today.getMonth() - birthDate.getMonth();
+      if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+      }
+      return age;
+  }
 
   function backToProfile(){
       $state.go(`root.profile`);

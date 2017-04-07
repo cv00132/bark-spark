@@ -26,23 +26,25 @@
                 </div>
             </div>
         </div>
-        </div>
-        <div class="matchContainer" ng-if="currentUser">
-            <div class="matchContainerTitle">Matches</div>
-            <div class="matchName" ng-repeat="match in ProfileController.matches">
-                <a href="#!/profile/{{match.senderId}}">{{match.senderId}}</a>
-                <span class="matchCheck" ng-click="ProfileController.acceptMatch(match.senderId)">
-              <i class="fa fa-check" aria-hidden="true"></i>
-            </span>
-                <span class="matchX">
+    </div>
+    <div class="matchContainer" ng-if="currentUser">
+        <div class="matchContainerTitle">Matches</div>
+        <div class="matchName" ng-repeat="match in ProfileController.matches">
+          <img src = "{{match.Sender.profilePic}}">
+            <a href="#!/profile/{{match.senderId}}">{{match.Sender.username}}</a>
+            <span class="matchX">
               <i class="fa fa-times" aria-hidden="true"></i>
             </span>
-            </div>
+            <span class="matchCheck" ng-click="ProfileController.acceptMatch(match.senderId)">
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </span>
+        <br><br>
+        </div>
     </div>
 </div>
 </div>
 <div class="userAboutMe">
-    <b>{{ProfileController.currentUser.username}}</b><br><br><b>Age:</b> {{ ProfileController.currentUser.DOB }}<br> <b>About me:</b> {{ProfileController.currentUser.description}}
+    <b>{{ProfileController.currentUser.username}}</b><br><br><b>Age:</b> {{ ProfileController.getAge(ProfileController.currentUser.DOB) }}<br> <b>About me:</b> {{ProfileController.currentUser.description}}
 </div>
 <div class="dogAboutMe" ng-repeat="dog in ProfileController.dogs | limitTo:3">
     <b>{{dog.name}}</b> <br><br> Breed: {{dog.breed}} <br> Age: {{dog.age}} <br> About: {{dog.description}}
