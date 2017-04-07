@@ -57,7 +57,7 @@ function Config($stateProvider, $urlRouterProvider) {
       })
 
       .state('root.chat', {
-          url: '/testing',
+          url: '/chat',
           templateUrl: 'templates/chat.tpl.html',
           controller: 'SocketController as SocketController'
       })

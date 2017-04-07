@@ -1,26 +1,38 @@
+import 'angular-websocket';
+
 function SocketController ($websocket) {
     let vm = this;
 
-    console.log("inside socketcontroller");
+    //console.log("inside socketcontroller");
 
-    vm.socket = $websocket('ws://localhost:8000/socket.io/');
+    //vm.socket = $websocket('ws://localhost:8000/socket.io/socket.io.js');
+    var socket = io('ws://localhost:8000/');
     vm.messages = [];
-    vm.sendMessage = sendMessage;
 
-    function init () {
-        vm.socket.on('connection', () => {
-            console.log("SocketController init")
+
+        socket.on('connect', (greet) => {
+            console.log("We've got a connection")
         })
-        vm.socket.on('chat message', (msg) => {
-            vm.messages.push(msg);
-        })
-    }
 
-    init();
+        socket.on("tweet", function(tweet) {
+            // todo: add the tweet as a DOM node
 
-    function sendMessage (input) {
-        vm.socket.emit('chat message', input);
-    }
+            console.log("tweet from", tweet.user);
+            console.log("contents:", tweet.text);
+        });
+
+
+        // connection.onMessage((msg) => {
+        //     console.log("Got a message! " + msg);
+        // })
+
+        // connection.send(JSON.stringify({
+        //     type: 'chat',
+        //     message: 'hi there'
+        //}))
+
+    // }
+
 
 }
 
