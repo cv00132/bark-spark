@@ -7,14 +7,19 @@ function ProfileController ($http, $state, SERVER, $location){
   vm.photos=[];
   vm.tags=[];
   vm.matches=[];
-  vm.getAge = getAge;
-  vm.addPhoto = addPhoto;
+//
   vm.backToProfile = backToProfile;
-  vm.addText = addText;
-  vm.addDog = addDog;
+//
+  vm.addPhoto = addPhoto;
   vm.addTags = addTags;
+  vm.addDog = addDog;
+  vm.addText = addText;
+//
+  vm.getAge = getAge;
   vm.editUserInfo = editUserInfo;
+//
   vm.newMatch = newMatch;
+  vm.acceptMatch = acceptMatch;
 
 
   function init() {
@@ -111,6 +116,17 @@ function ProfileController ($http, $state, SERVER, $location){
     $http.post(`${SERVER}/user/${$state.params.id}/match`)
     .then(function(response){
       console.log("match added");
+      $state.reload();
+    })
+    .catch(function(error){
+      console.log(error);
+    })
+  }
+
+  function acceptMatch(){
+    $http.put(`${SERVER}/user/${$state.params.id}/match`)
+    .then(function(response){
+      console.log("match accepted!");
       $state.reload();
     })
     .catch(function(error){

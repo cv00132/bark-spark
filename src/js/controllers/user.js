@@ -30,6 +30,7 @@ function UserController($scope, $http, SERVER, $cookies, $state, $rootScope, $lo
 
 
     $scope.login = function(data) {
+      console.log("working")
       $http.post(`${SERVER}/login`, data)
       .then(function(response){
       console.log(response);
@@ -45,6 +46,7 @@ function UserController($scope, $http, SERVER, $cookies, $state, $rootScope, $lo
       console.log(error, "you suck");
     })
   };
+
 
   $scope.logout = function(){
     $cookies.remove('access-token');
