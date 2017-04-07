@@ -11,8 +11,9 @@
 tags-input {
     border: 1px solid black;
   }
+
 //Code for desktop
-@media(max-width:1500px) {
+@media(max-width:1000000px) {
 body{
   .signUpBackgroundImage{
     background-image: url(../images/beachdog.jpg);
@@ -1424,15 +1425,13 @@ body{
   }
 
   .editUserModal{
-    height: 375px;
-    width: 40%;
+    height: 345px;
+    width: 100%;
     border: 1px solid grey;
     border-radius: 5px;
     background: white;
-    margin: auto;
-    position:fixed;
-    left:30%;
-    top:20%;
+    top:25%;
+    left:-.09%;
     box-shadow: 5px 5px 100px black;
 
     .editUserModalTitle{
@@ -1505,7 +1504,7 @@ body{
   }
 
   .addDogModal{
-    height: 470px;
+    height: 415px;
     width: 100%;
     border: 1px solid grey;
     border-radius: 5px;
@@ -1653,7 +1652,7 @@ body{
   }
 
   .addTextModal{
-    height: 325px;
+    height: 315px;
     width: 100%;
     border: 1px solid grey;
     border-radius: 5px;

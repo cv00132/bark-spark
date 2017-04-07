@@ -87,8 +87,8 @@ function ProfileController ($http, $state, SERVER, $location){
     $http.put(`${SERVER}/user/${$state.params.id}`, data)
     .then(function(){
       console.log("info edited");
-      // backToProfile();
-      // $state.reload();
+      backToProfile();
+      $state.reload();
     })
     .catch(function(error){
       console.log(error);
