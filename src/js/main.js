@@ -19,4 +19,3 @@ angular
     .controller('UserController', UserController)
     .controller('ProfileController', ProfileController)
     .controller('HomeController', HomeController)
-    .controller('MapController', MapController);

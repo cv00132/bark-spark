@@ -21,6 +21,11 @@
   left: 0;
   padding: 1rem;
   color:white;
+
+  a{
+    text-decoration: none;
+    color:white;
+  }
 }
 
 tags-input {
@@ -72,7 +77,7 @@ body{
     color: white;
     font-size: 200%;
     margin-left: 1%;
-    padding-top: 1.5%;
+    padding-top: 1%;
     float:left;
     font-family: 'Fredoka One', cursive;
     text-shadow: 1px 1px 2px black;
@@ -319,6 +324,9 @@ body{
 
   .addDogButton{
     margin-top: 5%;
+    position: absolute;
+    bottom:78%;
+    right:94%;
     a{
       color:grey;
       font-size: 190%;
@@ -331,11 +339,13 @@ body{
   }
 
   .chat{
-    float: right;
+    position: absolute;
     transform: rotate(45deg);
-    width: 16%;
+    width: 3%;
     filter: opacity(48%);
     display: inline-block;
+    left:22%;
+    bottom:78%;
 
         &:hover{
             color:#E79C67;
@@ -369,7 +379,7 @@ body{
     }
 
     .dogContainer{
-      margin-top: 8%;
+      margin-top: 20%;
       width: 100%;
       height:45%;
       border-radius: 10px;
@@ -437,7 +447,7 @@ body{
     color:white;
     text-shadow: 1px 1px 2px black;
     padding-top: 3%;
-    margin-bottom: 5%;
+    margin-bottom: 10%;
   }
 
   .matchName{
@@ -1065,6 +1075,8 @@ body{
     width:100%;
     background: black;
     clear:both;
+
+    font-size: 70%;
   }
 
     .notAUserButton{
@@ -1160,6 +1172,7 @@ body{
       width:100%;
       box-shadow: 0px 0px 25px 0px grey;
       border-radius: 0px;
+      margin-top: 10%;
 
       .homeUserPhoto{
         height:70%;
@@ -1226,7 +1239,9 @@ body{
     color:grey;
 
     .addDogButton{
-      margin-top: 5%;
+      position:absolute;
+      left: 23%;
+      top:7%;
       a{
         color:grey;
         font-size: 130%;
@@ -1239,9 +1254,11 @@ body{
     }
 
     .chat{
-      float: right;
+      position: absolute;
+      top:10%;
+      left: 70.5%;
       transform: rotate(45deg);
-      width: 16%;
+      width: 8%;
       filter: opacity(48%);
       display: inline-block;
 
@@ -1277,7 +1294,7 @@ body{
       }
 
       .dogContainer{
-        margin-top: 2%;
+        margin-top: 10%;
         width: 100%;
         height:50%;
         border-radius: 10px;
@@ -1345,7 +1362,6 @@ body{
       color:white;
       text-shadow: 1px 1px 2px black;
       padding-top: 3%;
-
     }
   }
 
@@ -1674,7 +1690,7 @@ body{
   }
 
   .addTextModal{
-    height: 315px;
+    height: 250px;
     width: 100%;
     border: 1px solid grey;
     border-radius: 5px;
@@ -1703,6 +1719,7 @@ body{
     .cancelButton{
       float:left;
       margin-left: 5%;
+      width:20%;
     }
 
     form{
