@@ -43,12 +43,6 @@ function Config($stateProvider, $urlRouterProvider) {
           controller: 'ProfileController as ProfileController'
         })
 
-      .state('root.map', {
-        url: '/barkSparkMap',
-        templateUrl: 'templates/map.tpl.html',
-        controller: 'MapController as MapController'
-      })
-
       .state('root.profile.addPhoto', {
         url: '/addPhoto',
         templateUrl: 'templates/addPhoto.tpl.html',
