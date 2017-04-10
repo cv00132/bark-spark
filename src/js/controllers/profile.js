@@ -41,7 +41,6 @@ function ProfileController ($http, $state, SERVER, $location){
   function getAge(birthday) {
       var today = new Date();
       var birthDate = new Date(birthday);
-      console.log(birthday);
       var age = today.getFullYear() - birthDate.getFullYear();
       var month = today.getMonth() - birthDate.getMonth();
       if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
@@ -69,7 +68,7 @@ function ProfileController ($http, $state, SERVER, $location){
   function addText(post) {
     $http.post(`${SERVER}/${$state.params.id}/post`, post)
     .then(function(){
-      console.log("successfully posted the textPost", body);
+      console.log("successfully posted the textPost", post);
       backToProfile();
       $state.reload();
     })
