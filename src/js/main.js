@@ -11,12 +11,11 @@ import UserController from './controllers/user.js';
 import ProfileController from './controllers/profile.js';
 import HomeController from './controllers/home.js';
 
-
 angular
-    .module('app', ['ui.router', 'ngCookies', 'ngTagsInput'])
+.module('app', ['ui.router', 'ngCookies', 'ngTagsInput'])
     .config(Config)
     .run (setup)
     .constant('SERVER', SERVER)
     .controller('UserController', UserController)
     .controller('ProfileController', ProfileController)
-    .controller('HomeController', HomeController);
+    .controller('HomeController', HomeController)
