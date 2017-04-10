@@ -3,11 +3,11 @@
         <div class="profilePictureContainer">
             <div class="addDogButton" ng-if="currentUser">
                 <a href="#!/profile/{{ProfileController.currentUser.id}}/addDog">
-                    <i class="fa fa-paw" aria-hidden="true"></i>
+                    <i class="fa fa-paw" aria-hidden="true" ng-show="ProfileController.myProfile"></i>
                 </a>
             </div>
-            <div class="requestChat">
-                <img src="./images/dogbone.png" alt="" class="chat" ng-click="ProfileController.newMatch()">
+            <div class="requestChat" ng-hide="ProfileController.myProfile">
+                <img src="./images/dogbone.png" class="chat" ng-click="ProfileController.newMatch()">
             </div>
             <div class="profilePicture">
                 <a href="#!/profile/{{ProfileController.currentUser.id}}/editUser">
@@ -27,7 +27,7 @@
             </div>
         </div>
     </div>
-    <div class="matchContainer" ng-if="currentUser">
+    <div class="matchContainer" ng-if="currentUser" ng-show="ProfileController.myProfile">
         <div class="matchContainerTitle">Matches</div>
         <div class="matchName" ng-repeat="match in ProfileController.matches">
           <img src = "{{match.Sender.profilePic}}">
@@ -51,7 +51,7 @@
 </div>
 <div ui-view></div>
 <div class="feed">
-    <div class="addTextPostButton">
+    <div class="addTextPostButton" ng-show="ProfileController.myProfile">
         <a href="#!/profile/{{ProfileController.currentUser.id}}/addText">
             <i class="fa fa-commenting-o" aria-hidden="true"></i>
         </a>

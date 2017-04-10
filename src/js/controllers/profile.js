@@ -1,4 +1,4 @@
-function ProfileController ($http, $state, SERVER, $location){
+function ProfileController ($http, $state, SERVER, $location, $cookies){
 
   let vm = this;
 
@@ -7,6 +7,8 @@ function ProfileController ($http, $state, SERVER, $location){
   vm.photos=[];
   vm.tags=[];
   vm.matches=[];
+  vm.userId = $cookies.get('userId');
+  vm.myProfile = $cookies.get('userId') === $state.params.id;
 //
   vm.backToProfile = backToProfile;
 //
@@ -133,5 +135,5 @@ function ProfileController ($http, $state, SERVER, $location){
     })
   }
 }
-ProfileController.$inject=['$http', '$state', 'SERVER', '$location'];
+ProfileController.$inject=['$http', '$state', 'SERVER', '$location', '$cookies'];
 export default ProfileController;

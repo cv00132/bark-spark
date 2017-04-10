@@ -61,7 +61,6 @@ function UserController($scope, $http, SERVER, $cookies, $state, $rootScope, $lo
   }
 
   function goProfile ()  {
-    console.log('hi')
     let userId = $cookies.get('userId');
     $state.go('root.profile', {id: userId})
   }
