@@ -124,23 +124,26 @@ body{
     color:white;
     position: absolute;
     left:87%;
-    top:3.7%;
+    top:4.3%;
 
     a{
       text-decoration: none;
       color:white;
+      text-shadow: 1px 1px 2px black;
     }
   }
 
   .loginLogoutContainer{
     float:right;
-    width:15%;
+    width:6%;
     margin-top: -2%;
+    width:80px;
 
     button{
       background: #E79C67;
       border:1px solid #E79C67;
       color:white;
+      text-shadow: 1px 1px 2px black;
     }
 
   .login{
@@ -156,11 +159,41 @@ body{
   }
 }
 
+.backToProfile:hover{
+  color:white;
+  position: absolute;
+  left:87%;
+
+  a{
+    text-decoration: none;
+    color:white;
+    text-shadow: 1px 1px 2px #E79C67;
+  }
+}
+
+.loginLogoutContainer:hover{
+  float:right;
+  width:6%;
+  margin-top: -2%;
+
+  button{
+    background: #E79C67;
+    border:1px solid #E79C67;
+    color:white;
+    text-shadow: 1px 1px 2px #E79C67;
+  }
+}
+
+
 .footer{
   height:50px;
   width:100%;
   background: black;
   clear:both;
+
+  a:hover{
+    color:#E79C67;
+  }
 }
 
   .notAUserButton{
@@ -1015,6 +1048,20 @@ body{
       }
     }
 
+    .backToProfile{
+      color:white;
+      position: absolute;
+      left:82.5%;
+      top:3%;
+      font-size: 90%;
+
+      a{
+        text-decoration: none;
+        color:white;
+        text-shadow: 1px 1px 2px black;
+      }
+    }
+
     .searchBar{
       margin-left: 37%;
 
@@ -1053,7 +1100,7 @@ body{
     .loginLogoutContainer{
       float:right;
       width:50%;
-      margin-top: -6%;
+      margin-top: -8%;
       font-size: 10px;
 
       button{
@@ -1076,10 +1123,21 @@ body{
   }
 
   .footer{
-    height:50px;
+    height:0px;
     width:100%;
-    background: black;
+    background: #E4E5DF;
     clear:both;
+    padding-left: 0px;
+    padding-top: 30px;
+
+    a{
+      color:white;
+      padding-left: 5px;
+      padding-right: 5px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      background: black;
+    }
 
     font-size: 70%;
   }
