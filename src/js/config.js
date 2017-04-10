@@ -55,13 +55,19 @@ function Config($stateProvider, $urlRouterProvider) {
         controller: 'ProfileController as ProfileController'
       })
 
+      .state('root.chat', {
+          url: '/chat',
+          templateUrl: 'templates/chat.tpl.html',
+          controller: 'SocketController as SocketController'
+      })
+
       .state('root.notFound', {
           url: '/not-found',
           templateUrl: 'templates/404.html'
       })
 
       $urlRouterProvider.when('', '/login');
-      //$urlRouterProvider.otherwise('/not-found');
+      $urlRouterProvider.otherwise('/not-found');
 }
 
 

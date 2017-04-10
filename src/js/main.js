@@ -10,6 +10,8 @@ import setup from './setup';
 import UserController from './controllers/user.js';
 import ProfileController from './controllers/profile.js';
 import HomeController from './controllers/home.js';
+import SocketController from './controllers/socket.js';
+
 
 angular
 .module('app', ['ui.router', 'ngCookies', 'ngTagsInput'])
@@ -19,3 +21,4 @@ angular
     .controller('UserController', UserController)
     .controller('ProfileController', ProfileController)
     .controller('HomeController', HomeController)
+    .controller('SocketController', SocketController);
