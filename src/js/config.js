@@ -3,21 +3,20 @@ function Config($stateProvider, $urlRouterProvider) {
     $stateProvider
 
         .state('root', {
-          abstract: true,
           templateUrl: 'templates/layout.tpl.html',
-          controller: 'UserController'
+          controller: 'UserController as UserController'
         })
 
         .state('signUp', {
             url: '/signUp',
             templateUrl: 'templates/signUp.tpl.html',
-            controller: 'UserController'
+            controller: 'UserController as UserController'
         })
 
         .state('login', {
           url: '/login',
           templateUrl: 'templates/login.tpl.html',
-          controller: 'UserController'
+          controller: 'UserController as UserController'
         })
 
         .state('root.home', {

@@ -1,24 +1,21 @@
 <div class="profileContainer" ng-model="currentUser" ng-init="currentUser = true">
     <div class="userContainer">
         <div class="profilePictureContainer">
-          <div class="addDogButton" ng-if="currentUser">
-              <a href="#!/profile/{{ProfileController.currentUser.id}}/addDog">
-                  <i class="fa fa-paw" aria-hidden="true"></i>
-              </a>
-          </div>
-          <div class="requestChat">
-              <a href="#">
-                  <img src="./images/dogbone.png" alt="" class="chat">
-              </a>
-          </div>
+            <div class="addDogButton" ng-if="currentUser">
+                <a href="#!/profile/{{ProfileController.currentUser.id}}/addDog">
+                    <i class="fa fa-paw" aria-hidden="true" ng-show="ProfileController.myProfile"></i>
+                </a>
+            </div>
+            <div class="requestChat" ng-hide="ProfileController.myProfile">
+                <img src="./images/dogbone.png" class="chat" ng-click="ProfileController.newMatch()">
+            </div>
             <div class="profilePicture">
                 <a href="#!/profile/{{ProfileController.currentUser.id}}/editUser">
-                <img ng-src="{{ProfileController.currentUser.profilePic}}" /></a>
+                    <img ng-src="{{ProfileController.currentUser.profilePic}}" /></a>
             </div>
             <div class="profileName">
                 {{ProfileController.currentUser.username}}
-                <br/>
-                {{ProfileController.currentUser.location}}
+                <br/> {{ProfileController.currentUser.location}}
             </div>
             <div class="dogContainer">
                 <div class="dogPicture" ng-repeat="dog in ProfileController.dogs | limitTo:3">
@@ -29,37 +26,38 @@
                 </div>
             </div>
         </div>
-        <div class="dogTags">
-            <ul>
-              <li>tag</li>
-            </ul>
-        </div>
-        <div class="matchContainer" ng-if="currentUser"> matches
+    </div>
+    <div class="matchContainer" ng-if="currentUser" ng-show="ProfileController.myProfile">
+        <div class="matchContainerTitle">Matches</div>
+        <div class="matchName" ng-repeat="match in ProfileController.matches">
+          <img src = "{{match.Sender.profilePic}}">
+            <a href="#!/profile/{{match.senderId}}">{{match.Sender.username}}</a>
+            <span class="matchX">
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </span>
+            <span class="matchCheck" ng-click="ProfileController.acceptMatch()">
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </span>
+        <br><br><br>
         </div>
     </div>
-    <div class="userAboutMe">
-        <b>{{ProfileController.currentUser.username}}</b> <br>
-        About me: {{ProfileController.currentUser.description}}
+</div>
+</div>
+<div class="userAboutMe">
+    <b>{{ProfileController.currentUser.username}}</b><br><br><b>Age:</b> {{ ProfileController.getAge(ProfileController.currentUser.DOB) }}<br> <b>About me:</b> {{ProfileController.currentUser.description}}
+</div>
+<div class="dogAboutMe" ng-repeat="dog in ProfileController.dogs | limitTo:3">
+    <b>{{dog.name}}</b> <br><br> Breed: {{dog.breed}} <br> Age: {{dog.age}} <br> About: {{dog.description}}
+</div>
+<div ui-view></div>
+<div class="feed">
+    <div class="addTextPostButton" ng-show="ProfileController.myProfile">
+        <a href="#!/profile/{{ProfileController.currentUser.id}}/addText">
+            <i class="fa fa-commenting-o" aria-hidden="true"></i>
+        </a>
     </div>
-    <div class="dogAboutMe" ng-repeat="dog in ProfileController.dogs | limitTo:3">
-        <b>{{dog.name}}</b> <br> Breed: {{dog.breed}} <br> Age: {{dog.age}} <br> About: {{dog.description}}
-    </div>
-
-    <div ui-view></div>
-    <div class="feed">
-        <div class="addPhotoPostButton" ng-if="currentUser">
-            <a href="#!/profile/{{ProfileController.currentUser.id}}/addPhoto">
-                <i class="fa fa-camera-retro" aria-hidden="true"></i>
-            </a>
-        </div>
-        <div class="addTextPostButton" ng-if="currentUser">
-            <a href="#!/profile/{{ProfileController.currentUser.id}}/addText">
-                <i class="fa fa-commenting-o" aria-hidden="true"></i>
-            </a>
-        </div>
-        <div class="feedContent" ng-repeat="post in ProfileController.currentUser.Posts">
-            <img ng-src="{{post.photoUrl}}" ng-show="post.photoUrl" />
-            <p class="caption" ng-show="post.body">{{post.body}}</p>
-        </div>
+    <div class="feedContent" ng-repeat="post in ProfileController.currentUser.Posts">
+        <img ng-src="{{post.photoUrl}}" ng-show="post.photoUrl">
+        <div class="caption" ng-show="post.body">{{post.body}}</div>
     </div>
 </div>

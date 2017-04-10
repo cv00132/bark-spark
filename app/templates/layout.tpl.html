@@ -2,8 +2,9 @@
     <div class="navTitle"><a href="#!/home">BarkSpark</a></div>
     <form class="searchBar">
       <input type="text" placeholder="Search for your perfect match" ng-model="userInput"  ng-show="loggedIn"/>
-      <button ng-click="filterButton(userInput)"  ng-show="loggedIn"><i class="fa fa-search" aria-hidden="true"></i></button>
+      <span><button ng-click="filterButton(userInput)"  ng-show="loggedIn"><i class="fa fa-search" aria-hidden="true"></i></button></span>
     </form>
+    <div class = "backToProfile"><a href ng-click="UserController.goProfile()">Profile</a></div>
     <div class="loginLogoutContainer">
     <form class="login" ng-show="!loggedIn">
       <a href = "#!/login"><button>Log-In</button></a>
@@ -15,3 +16,5 @@
   </div>
 
   <div ui-view></div>
+
+  <footer class = "footer"><a href="https://tiy-boss-barkmap.surge.sh" target="_blank">BarkSpark-Map(Powered by GoogleMaps)</a></footer>

@@ -1,7 +1,7 @@
 import angular from 'angular';
+import 'ng-tags-input';
 import 'angular-ui-router';
 import 'angular-cookies';
-import 'angular-websocket';
 
 import Config from './config';
 import SERVER from './server';
@@ -14,7 +14,7 @@ import SocketController from './controllers/socket.js';
 
 
 angular
-    .module('app', ['ui.router', 'ngCookies', 'ngWebSocket'])
+.module('app', ['ui.router', 'ngCookies', 'ngTagsInput'])
     .config(Config)
     .run (setup)
     .constant('SERVER', SERVER)

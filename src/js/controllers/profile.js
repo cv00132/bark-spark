@@ -1,16 +1,28 @@
-function ProfileController ($http, $state, SERVER, $location){
+function ProfileController ($http, $state, SERVER, $location, $cookies){
 
   let vm = this;
 
   vm.currentUser = [];
   vm.dogs=[];
   vm.photos=[];
-  vm.addText = addText;
-  vm.addPhoto = addPhoto;
+  vm.tags=[];
+  vm.matches=[];
+  vm.userId = $cookies.get('userId');
+  vm.myProfile = $cookies.get('userId') === $state.params.id;
+//
   vm.backToProfile = backToProfile;
+//
+  vm.addPhoto = addPhoto;
+  vm.addTags = addTags;
   vm.addDog = addDog;
+  vm.addText = addText;
+//
+  vm.getAge = getAge;
   vm.editUserInfo = editUserInfo;
+//
   vm.newMatch = newMatch;
+  vm.acceptMatch = acceptMatch;
+
 
   function init() {
     $http.get(`${SERVER}/user/${$state.params.id}`)
@@ -18,6 +30,8 @@ function ProfileController ($http, $state, SERVER, $location){
       vm.currentUser=response.data;
       vm.dogs=response.data.Dogs;
       vm.photos=response.data.Photos;
+      vm.tags=response.data.Tags;
+      vm.matches=response.data.Received;
       console.log(response, "you got data");
     })
     .catch(function(error){
@@ -25,6 +39,17 @@ function ProfileController ($http, $state, SERVER, $location){
     })
   }
   init();
+
+  function getAge(birthday) {
+      var today = new Date();
+      var birthDate = new Date(birthday);
+      var age = today.getFullYear() - birthDate.getFullYear();
+      var month = today.getMonth() - birthDate.getMonth();
+      if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+      }
+      return age;
+  }
 
   function backToProfile(){
       $state.go(`root.profile`);
@@ -45,9 +70,19 @@ function ProfileController ($http, $state, SERVER, $location){
   function addText(post) {
     $http.post(`${SERVER}/${$state.params.id}/post`, post)
     .then(function(){
-      console.log("successfully posted the textPost", body);
+      console.log("successfully posted the textPost", post);
       backToProfile();
       $state.reload();
+    })
+    .catch(function(error){
+      console.log(error);
+    })
+  }
+
+  function addTags(input) {
+    $http.post(`${SERVER}/tag`, input)
+    .then(function(){
+      console.log("tag created");
     })
     .catch(function(error){
       console.log(error);
@@ -78,14 +113,27 @@ function ProfileController ($http, $state, SERVER, $location){
     })
   }
 
-  function newMatch(data) {
-    console.log("working")
-    $http.post(`${SERVER}/${$state.params.id}/match`, data)
+  function newMatch() {
+    $http.post(`${SERVER}/user/${$state.params.id}/match`)
     .then(function(response){
       console.log("match added");
-      backToProfile();
+      $state.reload();
+    })
+    .catch(function(error){
+      console.log(error);
+    })
+  }
+
+  function acceptMatch(){
+    $http.put(`${SERVER}/user/${$state.params.id}/match`)
+    .then(function(response){
+      console.log("match accepted!");
+      $state.reload();
+    })
+    .catch(function(error){
+      console.log(error);
     })
   }
 }
-ProfileController.$inject=['$http', '$state', 'SERVER', '$location'];
+ProfileController.$inject=['$http', '$state', 'SERVER', '$location', '$cookies'];
 export default ProfileController;
