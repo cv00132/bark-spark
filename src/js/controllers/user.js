@@ -2,6 +2,11 @@ import SERVER from '../server'
 
 function UserController($scope, $http, SERVER, $cookies, $state, $rootScope, $location) {
 
+  let vm = this;
+
+  vm.goProfile = goProfile;
+
+
   $scope.theFilter = "";
   $scope.userInput = "";
 
@@ -54,6 +59,14 @@ function UserController($scope, $http, SERVER, $cookies, $state, $rootScope, $lo
     $rootScope.loggedIn = false;
     $location.path(`/login`)
   }
+
+  function goProfile ()  {
+    console.log('hi')
+    let userId = $cookies.get('userId');
+    $state.go('root.profile', {id: userId})
+  }
+
+
 }
 
 UserController.$inject = ['$scope', '$http', 'SERVER', '$cookies', '$state', '$rootScope', '$location'];
