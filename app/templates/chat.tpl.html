@@ -1,7 +1,25 @@
-
-<h1>Hi there!</h1>
-   <ul id='messages' ng-repeat='message in SocketController.messages'>{{ message }}</ul>
+<ul class = "chatContainer">
+   <!-- <li class='Sent' ng-repeat='message in SocketController.messages'>{{ message }}</ul> -->
+   <li class = "sentMessage"><span><b>Name1:</b><br> Irish skClimb leg rub face on everything give attitude nap all day for under the bed. Chase mice attack feet but rub face on everything hopped up on goofballs.
+inny, grinder affogato, dark, sweet carajillo, flavour seasonal aroma single origin cream. Percolator, foam, arabica, decaffeinated bar brewed aromatic.
+<span></li>
+   <li class = "receivedMessage"><span><b>Name2:</b><br> Climb legClimb leg rub face on everything give attitude nap all day for under the bed. Chase mice attack feet but rub face on everything hopped up on goofballs.
+ rub face on everything give attitude nap all day for under the bed. Chase mice attack feet but rub face on everything hopped up on goofballs.
+<span></li>
     <form id='chat' ng-submit='SocketController.sendMessage(msg)'>
-      <input ng-model="msg" autocomplete="off" />
-      <button>Send</button>
+      <input ng-model="msg" autocomplete="off" placeholder="Say something"/>
+      <button><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
     </form>
+  </ul>
+
+  <div class = "chatListContainer">
+    <div class = "chatListTitle">Chats</div>
+    <ul class = "chatList">
+      <li class = "chat">Example</li>
+      <li class = "chat">Example</li>
+      <li class = "chat">Example</li>
+      <li class = "chat">Example</li>
+      <li class = "chat">Example</li>
+      <li class = "chat">Example</li>
+      </ul>
+    </div>
