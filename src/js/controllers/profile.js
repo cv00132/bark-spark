@@ -47,10 +47,8 @@ function ProfileController ($http, $state, SERVER, $location, $cookies){
   function checkMatch() {
     for (var i = 0; i < vm.currentUser.Received.length; i++){
       var currentMatch = vm.currentUser.Received[i];
-      console.log(currentMatch.senderId);
       if (currentMatch.senderId === Number(vm.userId)){
-        console.log("Uh oh, matched already");
-        return vm.alreadyMatch = true;
+       return vm.alreadyMatch = true;
       }
     }
   }
@@ -149,8 +147,8 @@ function ProfileController ($http, $state, SERVER, $location, $cookies){
     })
   }
 
-  function acceptMatch(){
-    $http.put(`${SERVER}/user/${$state.params.id}/match`)
+  function acceptMatch(matchId){
+    $http.put(`${SERVER}/matches/${matchId}/accept`)
     .then(function(response){
       console.log("match accepted!");
       $state.reload();
