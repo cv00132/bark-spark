@@ -7,6 +7,7 @@ function ProfileController ($http, $state, SERVER, $location, $cookies){
   vm.photos=[];
   vm.tags=[];
   vm.matches=[];
+  vm.alreadyMatch=false;
   vm.userId = $cookies.get('userId');
   vm.myProfile = $cookies.get('userId') === $state.params.id;
   vm.currentUserId = $cookies.get('userId');
@@ -33,15 +34,26 @@ function ProfileController ($http, $state, SERVER, $location, $cookies){
       vm.photos=response.data.Photos;
       vm.tags=response.data.Tags;
       vm.matches=response.data.Received;
-      console.log(response, "you got data");
       var timeCreated = response.data.Posts;
-      console.log(timeCreated);
+      console.log(response, "you got data");
     })
     .catch(function(error){
       console.log(error, "you suck");
     })
   }
   init();
+
+  // function checkMatch(){
+  //   var userMatches = [];
+  //   for (i = 0; i < currentUser.Recieved; i++){
+  //     if (i.senderId === vm.userId){
+  //       userMatches.push(i);
+  //       console.log("hello")
+  //     }
+  //   }
+  //   console.log(userMatches.length);
+  // }
+  // checkMatch();
 
   function getAge(birthday) {
       var today = new Date();
