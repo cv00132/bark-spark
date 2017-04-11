@@ -1,42 +1,76 @@
-function SocketController () {
+import SERVER from '../server'
+
+
+function SocketController ($scope, $cookies, $rootScope, $http, SERVER) {
     let vm = this;
 
     vm.sendMessage = sendMessage;
+    vm.initChat = initChat;
 
-    var socket = io('ws://localhost:8000/');
+    vm.chats = [];
+    vm.chatId = '';
+    vm.senderId = '';
+    vm.recipientId = '';
     vm.msg = '';
     vm.messages = [];
     vm.users = [];
+    vm.username = $cookies.get('username');
 
     function init () {
-        socket.on('connection', () => {
-            console.log('We\'ve got a connection')
+        $rootScope.socket.on('connection', () => {
+            console.log(`${vm.username} got a connection`)
         });
 
-        socket.on('message', (data) => {
+        $rootScope.socket.on('message', (data) => {
             console.log(data);
+            vm.messages.push(data);
+            $scope.$apply();
         })
 
-        socket.on('disconnecting', () => {
+        $rootScope.socket.on('disconnecting', () => {
             console.log('We\'ve disconnected')
         })
+
+        $http.get(`${SERVER}/chats`)
+            .then(function(response) {
+                console.log(response.data);
+                vm.chats = response.data;
+            })
+            .catch(function(error) {
+                console.log(error, "You Suck");
+            });
     }
 
     init()
 
-    function sendMessage (data) {
-        console.log('btn pressed');
-        socket.emit('message', { msg: data });
+    function initChat (id) {
 
-            vm.messages.push(data);
-            console.log(vm.messages);
-            socket.emit('message', data);
+        $http.get(`${SERVER}/chats/${id}/messages`)
+            .then(function(response) {
+                vm.messages = response.data;
+                console.log(response.data, 'Chat started');
+            })
+            .catch(function(error) {
+                console.log(error, "You Suck");
+            });
+    }
+
+    function sendMessage (data) {
+        $rootScope.socket.emit('message',
+            { msg: data,
+              chatId: vm.chatId,
+              senderId: vm.senderId,
+              recipientId: vm.recipientId
+            }
+        );
+
+        // vm.messages.push(data);
 
         console.log('sent message', data);
         document.getElementById('chat').reset();
     }
 }
 
-SocketController.$inject = [];
+SocketController.$inject = ['$scope', '$cookies', '$rootScope', '$http', 'SERVER'];
 
 export default SocketController;

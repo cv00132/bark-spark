@@ -147,11 +147,12 @@ function ProfileController ($http, $state, SERVER, $location, $cookies){
     })
   }
 
+
   function acceptMatch(matchId){
     $http.put(`${SERVER}/matches/${matchId}/accept`)
     .then(function(response){
       console.log("match accepted!");
-      $state.reload();
+      $state.go('root.chat');
     })
     .catch(function(error){
       console.log(error);

@@ -24,7 +24,7 @@ function UserController($scope, $http, SERVER, $cookies, $state, $rootScope, $lo
                 console.log(error, "You Suck");
             });
     };
-// var userID = $cookies.get('userId')
+    // var userID = $cookies.get('userId')
     // $scope.go('root.profile', { id:userID})
 
     // $scope.validateAge = function($scope) {
