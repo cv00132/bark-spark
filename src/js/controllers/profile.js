@@ -124,11 +124,11 @@ function ProfileController ($http, $state, SERVER, $location, $cookies){
     })
   }
 
-  function acceptMatch(){
-    $http.put(`${SERVER}/user/${$state.params.id}/match`)
+  function acceptMatch(id){
+    $http.put(`${SERVER}/matches/${id}/accept`)
     .then(function(response){
       console.log("match accepted!");
-      $state.reload();
+      $state.go('root.chat');
     })
     .catch(function(error){
       console.log(error);

@@ -1,7 +1,13 @@
 
 <h1>Hi there!</h1>
    <ul id='messages' ng-repeat='message in SocketController.messages'>{{ message }}</ul>
-    <form id='chat' ng-submit='SocketController.sendMessage(msg)'>
-      <input ng-model="msg" autocomplete="off" />
+    <form id='chat' ng-submit="SocketController.sendMessage(message)">
+      <input ng-model="message" autocomplete="off" />
       <button>Send</button>
     </form>
+
+    <div class="chatList" ng-repeat="chat in SocketController.chats">
+        <div ng-click="initChat(chat.id)">
+            {{ user }}
+        </div>
+    </div>
