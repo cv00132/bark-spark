@@ -106,6 +106,7 @@ body{
       height:30px;
       width:6%;
       margin-left: -1%;
+      margin-top: 3%;
       border:1px solid black;
       border-top-right-radius: 10px;
       border-bottom-right-radius: 10px;
@@ -506,7 +507,7 @@ body{
 
   img{
     width:15%;
-    height:5%;
+    height:35px;
     float:left;
     margin-left: 3%;
   }
@@ -557,7 +558,7 @@ body{
     img{
       height:100%;
       width:100%;
-      border-radius: 5px;
+      border-radius: 2px;
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
     }
@@ -570,6 +571,14 @@ body{
       padding-bottom: 2%;
       padding-left: 1%;
       border-radius:5px;
+  }
+
+  .timeStamp{
+    float:right;
+    margin-right: 3%;
+    height:100%;
+    color:black;
+    font-size:70%;
   }
 }
 
@@ -1430,14 +1439,14 @@ body{
 
   .feed{
     height:100%;
-    width:75%;
+    width:90%;
     border:1px solid grey;
     border-radius: 5px;
     margin-top: 2%;
     margin-bottom: 5%;
     background-color: #D5ECF4;
     padding-bottom: 2%;
-    margin-right: 12%;
+    margin-right: 5%;
 
     .feedContent{
       margin: auto;
@@ -1753,7 +1762,7 @@ body{
   }
 
   .addTextModal{
-    height: 250px;
+    height: 310px;
     width: 100%;
     border: 1px solid grey;
     border-radius: 5px;

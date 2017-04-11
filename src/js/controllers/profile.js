@@ -9,6 +9,7 @@ function ProfileController ($http, $state, SERVER, $location, $cookies){
   vm.matches=[];
   vm.userId = $cookies.get('userId');
   vm.myProfile = $cookies.get('userId') === $state.params.id;
+  vm.currentUserId = $cookies.get('userId');
 //
   vm.backToProfile = backToProfile;
 //
@@ -33,6 +34,8 @@ function ProfileController ($http, $state, SERVER, $location, $cookies){
       vm.tags=response.data.Tags;
       vm.matches=response.data.Received;
       console.log(response, "you got data");
+      var timeCreated = response.data.Posts;
+      console.log(timeCreated);
     })
     .catch(function(error){
       console.log(error, "you suck");

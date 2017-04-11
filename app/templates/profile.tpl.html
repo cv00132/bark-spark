@@ -47,7 +47,7 @@
     <b>{{ProfileController.currentUser.username}}</b><br><br><b>Age:</b> {{ ProfileController.getAge(ProfileController.currentUser.DOB) }}<br> <b>About me:</b> {{ProfileController.currentUser.description}}
 </div>
 <div class="dogAboutMe" ng-repeat="dog in ProfileController.dogs | limitTo:3">
-    <b>{{dog.name}}</b> <br><br> Breed: {{dog.breed}} <br> Age: {{dog.age}} <br> About: {{dog.description}}
+    <b>{{dog.name}}</b> <br><br> <b>Breed:</b> {{dog.breed}} <br> <b>Age:</b> {{dog.age}} <br> <b>About:</b> {{dog.description}}
 </div>
 <div ui-view></div>
 <div class="feed">
@@ -58,6 +58,6 @@
     </div>
     <div class="feedContent" ng-repeat="post in ProfileController.currentUser.Posts">
         <img ng-src="{{post.photoUrl}}" ng-show="post.photoUrl">
-        <div class="caption" ng-show="post.body">{{post.body}}</div>
+        <div class="caption" ng-show="post.body">{{post.body}} <div class = "timeStamp"> {{post.createdAt.slice(0, 10)}}</div></div>
     </div>
 </div>
