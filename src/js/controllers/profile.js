@@ -7,8 +7,11 @@ function ProfileController ($http, $state, SERVER, $location, $cookies){
   vm.photos=[];
   vm.tags=[];
   vm.matches=[];
+  vm.sameMatch = [];
+  vm.alreadyMatch=false;
   vm.userId = $cookies.get('userId');
   vm.myProfile = $cookies.get('userId') === $state.params.id;
+  vm.currentUserId = $cookies.get('userId');
 //
   vm.backToProfile = backToProfile;
 //
@@ -23,7 +26,6 @@ function ProfileController ($http, $state, SERVER, $location, $cookies){
   vm.newMatch = newMatch;
   vm.acceptMatch = acceptMatch;
 
-
   function init() {
     $http.get(`${SERVER}/user/${$state.params.id}`)
     .then(function(response){
@@ -32,13 +34,36 @@ function ProfileController ($http, $state, SERVER, $location, $cookies){
       vm.photos=response.data.Photos;
       vm.tags=response.data.Tags;
       vm.matches=response.data.Received;
+      var timeCreated = response.data.Posts;
       console.log(response, "you got data");
+      checkMatch();
     })
     .catch(function(error){
       console.log(error, "you suck");
     })
-  }
+}
   init();
+
+  function checkMatch() {
+    for (var i = 0; i < vm.currentUser.Received.length; i++){
+      var currentMatch = vm.currentUser.Received[i];
+      console.log(currentMatch.senderId);
+      if (currentMatch.senderId === Number(vm.userId)){
+        console.log("Uh oh, matched already");
+        return vm.alreadyMatch = true;
+      }
+    }
+  }
+  // function checkMatch(){
+  //   for (i = 0; i < currentUser.Received; i++){
+  //     if (i.senderId === vm.userId){
+  //       vm.sameMatch.push(i.senderId);
+  //       console.log(i);
+  //     }
+  //   }
+  //   console.log("hello");
+  // }
+  //  checkMatch();
 
   function getAge(birthday) {
       var today = new Date();
