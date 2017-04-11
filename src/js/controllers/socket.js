@@ -5,6 +5,7 @@ function SocketController ($scope, $cookies, $rootScope, $http, SERVER) {
     let vm = this;
 
     vm.sendMessage = sendMessage;
+    vm.initChat = initChat;
 
     vm.chats = [];
     vm.chatId = '';
@@ -12,19 +13,12 @@ function SocketController ($scope, $cookies, $rootScope, $http, SERVER) {
     vm.recipientId = '';
     vm.msg = '';
     vm.messages = [];
+    vm.users = [];
+    vm.username = $cookies.get('username');
 
     function init () {
         $rootScope.socket.on('connection', () => {
             console.log(`${vm.username} got a connection`)
-            //vm.users.push($cookies.get('userId'));
-            $http.get(`${SERVER}/chats`)
-                .then(function(response) {
-                    vm.chats = response.data;
-                    console.log(response.data, 'Chat started');
-                })
-                .catch(function(error) {
-                    console.log(error, "You Suck");
-                });
         });
 
         $rootScope.socket.on('message', (data) => {
@@ -36,15 +30,24 @@ function SocketController ($scope, $cookies, $rootScope, $http, SERVER) {
         $rootScope.socket.on('disconnecting', () => {
             console.log('We\'ve disconnected')
         })
+
+        $http.get(`${SERVER}/chats`)
+            .then(function(response) {
+                console.log(response.data);
+                vm.chats = response.data;
+            })
+            .catch(function(error) {
+                console.log(error, "You Suck");
+            });
     }
 
     init()
 
     function initChat (id) {
-        vm.chatId = id;
 
-        $http.get(`${SERVER}/chats/${vm.chatId}/messages`)
+        $http.get(`${SERVER}/chats/${id}/messages`)
             .then(function(response) {
+                vm.messages = response.data;
                 console.log(response.data, 'Chat started');
             })
             .catch(function(error) {
@@ -53,7 +56,6 @@ function SocketController ($scope, $cookies, $rootScope, $http, SERVER) {
     }
 
     function sendMessage (data) {
-        console.log('btn pressed');
         $rootScope.socket.emit('message',
             { msg: data,
               chatId: vm.chatId,
