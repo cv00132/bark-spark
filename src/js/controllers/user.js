@@ -17,7 +17,7 @@ function UserController($scope, $http, SERVER, $cookies, $state, $rootScope, $lo
     $scope.signUp = function(data) {
         $http.post(`${SERVER}/signUp`, data)
             .then(function(response) {
-                $state.go('root.login');
+                $location.path(`/login`)
                 console.log(response.data, 'User successfully created');
             })
             .catch(function(error) {

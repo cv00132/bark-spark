@@ -1,4 +1,4 @@
-<div class="homeUserContainer" ng-repeat="user in HomeController.allUsers | filter:theFilter">
+<div class="homeUserContainer" ng-repeat="user in HomeController.allUsers | filter:theFilter" ng-show="user.profilePic != null">
     <div class="homeUser">
         <div class="homeUserPhoto"><a href ="#!/profile/{{ user.id }}"><img ng-src="{{user.profilePic}}"/></a></div>
         <div class="homeUserInfo">{{user.username}}<br><br>Age: {{ HomeController.getAge(user.DOB) }}<br>Location: {{user.location}}</div>
