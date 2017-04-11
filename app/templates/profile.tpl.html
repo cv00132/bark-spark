@@ -6,7 +6,7 @@
                     <i class="fa fa-paw" aria-hidden="true" ng-show="ProfileController.myProfile"></i>
                 </a>
             </div>
-            <div class="requestChat" ng-hide="ProfileController.myProfile">
+            <div class="requestChat" ng-hide="ProfileController.myProfile || ProfileController.alreadyMatch">
                 <img src="./images/dogbone.png" class="chat" ng-click="ProfileController.newMatch()">
             </div>
             <div class="profilePicture">
