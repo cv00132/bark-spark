@@ -58,7 +58,7 @@ function SocketController ($scope, $cookies, $rootScope, $http, SERVER) {
             .then(function(response) {
                 vm.messages = response.data.Messages;
                 vm.senderId = $cookies.get('userId');
-                vm.receiverId = response.data.senderId;
+                vm.receiverId = response.data.recipientId;
                 console.log(response.data, 'Chat started');
             })
             .catch(function(error) {
