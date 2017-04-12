@@ -138,6 +138,20 @@ body{
     }
   }
 
+  .chatButton{
+    color:white;
+    position:absolute;
+    left:80%;
+    top:3.75%;
+    font-size: 110%;
+
+    a{
+      text-decoration: none;
+      color:white;
+      text-shadow: 1px 1px 2px black;
+    }
+  }
+
   .loginLogoutContainer{
     float:right;
     width:6%;
@@ -172,6 +186,13 @@ body{
   a{
     text-decoration: none;
     color:white;
+    text-shadow: 1px 1px 2px #E79C67;
+  }
+}
+
+.chatButton:hover{
+
+  a{
     text-shadow: 1px 1px 2px #E79C67;
   }
 }
@@ -351,6 +372,19 @@ body{
       margin-bottom: 2%;
     }
   }
+}
+
+.clickMe{
+  position: absolute;
+  width:100px;
+    top: 22%;
+    left:11.3%;
+    text-decoration: none;
+    color:grey;
+}
+
+.clickMe:hover{
+  color:black;
 }
 
 .userContainer{
@@ -558,6 +592,7 @@ body{
     border-radius: 1px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
+    box-shadow: 2px 5px 15px grey;
 
     img{
       height:100%;
@@ -998,6 +1033,7 @@ body{
   margin-bottom: 4%;
   float:left;
 
+
   b{
     color:grey;
   }
@@ -1022,6 +1058,11 @@ body{
       border: 1px solid grey;
       background: #E79C67;
       color:white;
+    }
+
+    button:hover{
+      color:grey;
+      background:#D5ECF4;
     }
 
     .sentMessage{
