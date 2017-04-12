@@ -152,7 +152,7 @@ function ProfileController ($http, $state, SERVER, $location, $cookies){
     $http.put(`${SERVER}/matches/${matchId}/accept`)
     .then(function(response){
       console.log("match accepted!");
-      //$state.go('root.chat');
+      $state.reload();
     })
     .catch(function(error){
       console.log(error);

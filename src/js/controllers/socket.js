@@ -15,6 +15,7 @@ function SocketController ($scope, $cookies, $rootScope, $http, SERVER) {
     vm.messages = [];
     vm.users = [];
     vm.username = $cookies.get('username');
+    vm.userId = $cookies.get('userId');
 
     function init () {
         $http.get(`${SERVER}/chats`)

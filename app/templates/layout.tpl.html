@@ -4,6 +4,7 @@
       <input type="text" placeholder="Search for your perfect match" ng-model="userInput"  ng-show="loggedIn"/>
       <span><button ng-click="filterButton(userInput)"  ng-show="loggedIn"><i class="fa fa-search" aria-hidden="true"></i></button></span>
     </form>
+    <div class = "chatButton"><a href = "#!/chat">Chat</a></div>
     <div class = "backToProfile"><a href ng-click="UserController.goProfile()">Profile</a></div>
     <div class="loginLogoutContainer">
     <form class="login" ng-show="!loggedIn">

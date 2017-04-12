@@ -11,7 +11,8 @@
             </div>
             <div class="profilePicture">
                 <a href="#!/profile/{{ProfileController.currentUser.id}}/editUser">
-                    <img ng-src="{{ProfileController.currentUser.profilePic}}" /></a>
+                  <span class="clickMe" ng-show="ProfileController.currentUser.profilePic === null">Click here to edit your info!</span>
+                    <img ng-src="{{ProfileController.currentUser.profilePic}}" ng-show="ProfileController.currentUser.profilePic != null"/></a>
             </div>
             <div class="profileName">
                 {{ProfileController.currentUser.username}}
@@ -58,6 +59,6 @@
     </div>
     <div class="feedContent" ng-repeat="post in ProfileController.currentUser.Posts">
         <img ng-src="{{post.photoUrl}}" ng-show="post.photoUrl">
-        <div class="caption" ng-show="post.body">{{post.body}} <div class = "timeStamp"> {{post.createdAt.slice(0, 10)}}</div></div>
+        <div class="caption" ng-show="post.body"><b>"</b>  {{post.body}}  <b>"</b><div class = "timeStamp"> {{post.createdAt.slice(0, 10)}}</div></div>
     </div>
 </div>

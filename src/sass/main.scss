@@ -138,6 +138,20 @@ body{
     }
   }
 
+  .chatButton{
+    color:white;
+    position:absolute;
+    left:80%;
+    top:3.75%;
+    font-size: 110%;
+
+    a{
+      text-decoration: none;
+      color:white;
+      text-shadow: 1px 1px 2px black;
+    }
+  }
+
   .loginLogoutContainer{
     float:right;
     width:6%;
@@ -172,6 +186,13 @@ body{
   a{
     text-decoration: none;
     color:white;
+    text-shadow: 1px 1px 2px #E79C67;
+  }
+}
+
+.chatButton:hover{
+
+  a{
     text-shadow: 1px 1px 2px #E79C67;
   }
 }
@@ -351,6 +372,19 @@ body{
       margin-bottom: 2%;
     }
   }
+}
+
+.clickMe{
+  position: absolute;
+  width:100px;
+    top: 22%;
+    left:11.3%;
+    text-decoration: none;
+    color:grey;
+}
+
+.clickMe:hover{
+  color:black;
 }
 
 .userContainer{
@@ -558,6 +592,7 @@ body{
     border-radius: 1px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
+    box-shadow: 2px 5px 15px grey;
 
     img{
       height:100%;
@@ -990,7 +1025,7 @@ body{
   border:1px solid grey;
   height: 550px;
   width:70%;
-  background: #D5ECF4;
+  background: #FAFAFA;
   margin: 0px;
   margin-top: 1%;
   margin-left: 1%;
@@ -998,11 +1033,59 @@ body{
   margin-bottom: 4%;
   float:left;
 
+
   b{
     color:grey;
   }
 
+    .sentMessage{
+      width:100%;
+      list-style: none;
+      margin-left: 0px;
+      float:left;
+      clear:both;
+      margin-bottom: 5%;
+      margin-top: 2%;
 
+      span{
+        float:left;
+        height:100%;
+        border: 1px solid grey;
+        padding-left: 1%;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        padding-right: 1%;
+        border-radius: 10px;
+        background: #D5ECF4;
+        color:black;
+      }
+    }
+
+    .receivedMessage{
+      width:100%;
+      list-style: none;
+      float:right;
+      clear:both;
+      margin-top: 2%;
+      margin-bottom: 5%;
+
+      span{
+        float:right;
+        margin-right: 5%;
+        height:100%;
+        border:1px solid grey;
+        padding-left: 1%;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        padding-right: 1%;
+        border-radius: 10px;
+        background: #FCD487;
+        color:black;
+      }
+    }
+  }
+
+  .chatContainerContainer{
     input{
       width:50%;
       position: absolute;
@@ -1024,35 +1107,9 @@ body{
       color:white;
     }
 
-    .sentMessage{
-      width:100%;
-      list-style: none;
-      margin-left: 0px;
-      float:left;
-      clear:both;
-      margin-bottom: 5%;
-      margin-top: 2%;
-
-      span{
-        float:left;
-        width:40%;
-        height:100%;
-      }
-    }
-
-    .receivedMessage{
-      width:100%;
-      list-style: none;
-      float:right;
-      clear:both;
-      margin-top: 2%;
-
-      span{
-        float:right;
-        margin-right: 5%;
-        width:40%;
-        height:100%;
-      }
+    button:hover{
+      color:grey;
+      background:#D5ECF4;
     }
   }
 
