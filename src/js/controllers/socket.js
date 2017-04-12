@@ -29,11 +29,13 @@ function SocketController ($scope, $cookies, $rootScope, $http, SERVER) {
 
         $rootScope.socket.on('connection', () => {
             console.log(`${vm.username} got a connection`)
+            $rootScope.socket.emit('message', message)
         });
 
         $rootScope.socket.on('message', (data) => {
-            console.log(data);
-            vm.messages.push(data);
+            let object = JSON.parse(data);
+            console.log(object, vm.messages);
+            vm.messages.push(object);
             $scope.$apply();
         });
 
@@ -59,7 +61,7 @@ function SocketController ($scope, $cookies, $rootScope, $http, SERVER) {
             .then(function(response) {
                 vm.messages = response.data.Messages;
                 vm.senderId = $cookies.get('userId');
-                vm.receiverId = response.data.recipientId;
+                vm.receiverId = response.data.senderId;
                 console.log(response.data, 'Chat started');
             })
             .catch(function(error) {
@@ -75,8 +77,6 @@ function SocketController ($scope, $cookies, $rootScope, $http, SERVER) {
               recipientId: vm.receiverId
             }
         );
-
-        vm.messages.push(data);
 
         console.log('sent message', data);
         document.getElementById('chat').reset();
