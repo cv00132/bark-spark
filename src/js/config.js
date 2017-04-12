@@ -61,6 +61,11 @@ function Config($stateProvider, $urlRouterProvider) {
           controller: 'SocketController as SocketController'
       })
 
+      .state('root.aboutUs', {
+        url: '/aboutUs',
+        templateUrl: 'templates/aboutUs.tpl.html',
+      })
+
       .state('root.notFound', {
           url: '/not-found',
           templateUrl: 'templates/404.html'
