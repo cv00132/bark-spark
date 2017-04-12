@@ -10,27 +10,13 @@ function SocketController ($scope, $cookies, $rootScope, $http, SERVER) {
     vm.chats = [];
     vm.chatId = '';
     vm.senderId = '';
-    vm.recipientId = '';
+    vm.receiverId = '';
     vm.msg = '';
     vm.messages = [];
     vm.users = [];
     vm.username = $cookies.get('username');
 
     function init () {
-        $rootScope.socket.on('connection', () => {
-            console.log(`${vm.username} got a connection`)
-        });
-
-        $rootScope.socket.on('message', (data) => {
-            console.log(data);
-            vm.messages.push(data);
-            $scope.$apply();
-        })
-
-        $rootScope.socket.on('disconnecting', () => {
-            console.log('We\'ve disconnected')
-        })
-
         $http.get(`${SERVER}/chats`)
             .then(function(response) {
                 console.log(response.data);
@@ -39,15 +25,40 @@ function SocketController ($scope, $cookies, $rootScope, $http, SERVER) {
             .catch(function(error) {
                 console.log(error, "You Suck");
             });
+
+        $rootScope.socket.on('connection', () => {
+            console.log(`${vm.username} got a connection`)
+        });
+
+        $rootScope.socket.on('message', (data) => {
+            console.log(data);
+            vm.messages.push(data);
+            $scope.$apply();
+        });
+
+        $rootScope.socket.on('disconnecting', () => {
+            console.log('We\'ve disconnected')
+        });
+
+
     }
 
     init()
 
     function initChat (id) {
+        vm.chatId = id;
 
+        // Note that we set up the Sender to be the current user
+        // and the receiver to be the "other person" in the chat.
+        // This makes sense because we accepted a match but wouldn't
+        // work if we had initiated the match. We need to actually
+        // figure out how to test for this with a conditional in the
+        // morning when we have brains again.
         $http.get(`${SERVER}/chats/${id}/messages`)
             .then(function(response) {
-                vm.messages = response.data;
+                vm.messages = response.data.Messages;
+                vm.senderId = $cookies.get('userId');
+                vm.receiverId = response.data.senderId;
                 console.log(response.data, 'Chat started');
             })
             .catch(function(error) {
@@ -60,11 +71,11 @@ function SocketController ($scope, $cookies, $rootScope, $http, SERVER) {
             { msg: data,
               chatId: vm.chatId,
               senderId: vm.senderId,
-              recipientId: vm.recipientId
+              recipientId: vm.receiverId
             }
         );
 
-        // vm.messages.push(data);
+        vm.messages.push(data);
 
         console.log('sent message', data);
         document.getElementById('chat').reset();
