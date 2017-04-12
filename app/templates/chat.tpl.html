@@ -1,13 +1,13 @@
 
 <ul class = "chatContainer">
    <li class='Sent' ng-repeat='message in SocketController.messages'>{{ message }}</ul>
-   <li class = "sentMessage"><span><b>Name1:</b><br> Irish skClimb leg rub face on everything give attitude nap all day for under the bed. Chase mice attack feet but rub face on everything hopped up on goofballs.
+   <!-- <li class = "sentMessage"><span><b>Name1:</b><br> Irish skClimb leg rub face on everything give attitude nap all day for under the bed. Chase mice attack feet but rub face on everything hopped up on goofballs.
 inny, grinder affogato, dark, sweet carajillo, flavour seasonal aroma single origin cream. Percolator, foam, arabica, decaffeinated bar brewed aromatic.
 <span></li>
    <li class = "receivedMessage"><span><b>Name2:</b><br> Climb legClimb leg rub face on everything give attitude nap all day for under the bed. Chase mice attack feet but rub face on everything hopped up on goofballs.
  rub face on everything give attitude nap all day for under the bed. Chase mice attack feet but rub face on everything hopped up on goofballs.
-<span></li>
-    <form ng-submit="SocketController.sendMessage(message)">
+<span></li> -->
+    <form id="chat" ng-submit="SocketController.sendMessage(message)">
       <input ng-model="message" autocomplete="off" placeholder="Say something"/>
       <button><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
     </form>
