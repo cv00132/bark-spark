@@ -3,10 +3,10 @@
         <div class="profilePictureContainer">
             <div class="addDogButton" ng-if="currentUser">
                 <a href="#!/profile/{{ProfileController.currentUser.id}}/addDog">
-                    <i class="fa fa-paw" aria-hidden="true" ng-show="ProfileController.myProfile"></i>
+                    <i class="fa fa-paw" aria-hidden="true" title="Click here to add a dog" ng-show="ProfileController.myProfile"></i>
                 </a>
             </div>
-            <div class="requestChat" ng-hide="ProfileController.myProfile || ProfileController.alreadyMatch">
+            <div class="requestChat" title="Click here to send a match" ng-hide="ProfileController.myProfile || ProfileController.alreadyMatch">
                 <img src="./images/dogbone.png" class="chat" ng-click="ProfileController.newMatch()">
             </div>
             <div class="profilePicture">
@@ -45,14 +45,14 @@
 </div>
 </div>
 <div class="userAboutMe">
-    <b>{{ProfileController.currentUser.username}}</b><br><br><b>Age:</b> {{ ProfileController.getAge(ProfileController.currentUser.DOB) }}<br> <b>About me:</b> {{ProfileController.currentUser.description}}
+    <b class = "userAboutMeTitle">About Me</b><br><br><b>Age:</b> {{ ProfileController.getAge(ProfileController.currentUser.DOB) }}<br> <b>About me:</b> {{ProfileController.currentUser.description}}
 </div>
 <div class="dogAboutMe" ng-repeat="dog in ProfileController.dogs | limitTo:3">
-    <b>{{dog.name}}</b> <br><br> <b>Breed:</b> {{dog.breed}} <br> <b>Age:</b> {{dog.age}} <br> <b>About:</b> {{dog.description}}
+    <b class = "dogAboutMeTitle">About {{dog.name}}</b> <br><br> <b>Breed:</b> {{dog.breed}} <br> <b>Age:</b> {{dog.age}} <br> <b>About:</b> {{dog.description}}
 </div>
 <div ui-view></div>
 <div class="feed">
-    <div class="addTextPostButton" ng-show="ProfileController.myProfile">
+    <div class="addTextPostButton" title="Click here to add a post" ng-show="ProfileController.myProfile">
         <a href="#!/profile/{{ProfileController.currentUser.id}}/addText">
             <i class="fa fa-commenting-o" aria-hidden="true"></i>
         </a>

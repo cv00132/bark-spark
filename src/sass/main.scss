@@ -1002,6 +1002,14 @@ body{
   border-radius: 5px;
   background: #D5ECF4;
   color:grey;
+
+  .userAboutMeTitle{
+    font-size: 110%;
+    text-align: center;
+    text-shadow: 1px 1px 2px black;
+    color:white;
+    text-decoration: underline;
+  }
 }
 
 .dogAboutMe{
@@ -1018,6 +1026,16 @@ body{
   border-radius: 5px;
   background: #E79C67;
   color:white;
+
+  .dogAboutMeTitle{
+    font-size: 110%;
+    text-align: center;
+    text-shadow: 1px 1px 2px black;
+    color:white;
+    width:100%;
+    text-align: center;
+    text-decoration: underline;
+  }
 }
 
 .matchButtonContainer{
