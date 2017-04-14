@@ -25,6 +25,7 @@ function ProfileController ($http, $state, SERVER, $location, $cookies){
 //
   vm.newMatch = newMatch;
   vm.acceptMatch = acceptMatch;
+  vm.deleteMatch = deleteMatch;
 
   function init() {
     $http.get(`${SERVER}/user/${$state.params.id}`)
@@ -152,6 +153,17 @@ function ProfileController ($http, $state, SERVER, $location, $cookies){
     $http.put(`${SERVER}/matches/${matchId}/accept`)
     .then(function(response){
       console.log("match accepted!");
+      $state.reload();
+    })
+    .catch(function(error){
+      console.log(error);
+    })
+  }
+
+  function deleteMatch(matchId){
+    $http.delete(`${SERVER}/matches/${matchId}/delete`)
+    .then(function(response){
+      console.log("match deleted!");
       $state.reload();
     })
     .catch(function(error){

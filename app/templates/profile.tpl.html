@@ -15,7 +15,7 @@
                     <img ng-src="{{ProfileController.currentUser.profilePic}}" ng-show="ProfileController.currentUser.profilePic != null"/></a>
             </div>
             <div class="profileName">
-                {{ProfileController.currentUser.username}}
+                <b>{{ProfileController.currentUser.username}}</b>
                 <br/> {{ProfileController.currentUser.location}}
             </div>
             <div class="dogContainer">
@@ -33,7 +33,7 @@
         <div class="matchName" ng-repeat="match in ProfileController.matches" ng-show="match.accepted === false">
           <img src = "{{match.Sender.profilePic}}">
             <a href="#!/profile/{{match.senderId}}">{{match.Sender.username}}</a>
-            <span class="matchX">
+            <span class="matchX" ng-click="ProfileController.deleteMatch(match.id)">
               <i class="fa fa-times" aria-hidden="true"></i>
             </span>
             <span class="matchCheck" ng-click="ProfileController.acceptMatch(match.id)">
@@ -45,10 +45,10 @@
 </div>
 </div>
 <div class="userAboutMe">
-    <b class = "userAboutMeTitle">About Me</b><br><br><b>Age:</b> {{ ProfileController.getAge(ProfileController.currentUser.DOB) }}<br> <b>About me:</b> {{ProfileController.currentUser.description}}
+    <b class = "userAboutMeTitle">About Me</b><br><br><b>Age:</b> {{ ProfileController.getAge(ProfileController.currentUser.DOB) }}<br> <b>Description:</b> {{ProfileController.currentUser.description}}
 </div>
 <div class="dogAboutMe" ng-repeat="dog in ProfileController.dogs | limitTo:3">
-    <b class = "dogAboutMeTitle">About {{dog.name}}</b> <br><br> <b>Breed:</b> {{dog.breed}} <br> <b>Age:</b> {{dog.age}} <br> <b>About:</b> {{dog.description}}
+    <b class = "dogAboutMeTitle">About {{dog.name}}</b> <br><br> <b>Breed:</b> {{dog.breed}} <br> <b>Age:</b> {{dog.age}} <br> <b>Description:</b> {{dog.description}}
 </div>
 <div ui-view></div>
 <div class="feed">
