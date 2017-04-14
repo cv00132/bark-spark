@@ -347,6 +347,12 @@ body{
       border-top: 0px;
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 5px;
+      color:grey;
+    }
+
+    b{
+      font-size: 115%;
+      color:black;
     }
   }
 
@@ -524,7 +530,6 @@ body{
     text-align: center;
     font-size: 130%;
     text-decoration: underline;
-    font-family: 'Fredoka One', cursive;
     color:white;
     text-shadow: 1px 1px 2px black;
     padding-top: 3%;
@@ -1002,6 +1007,14 @@ body{
   border-radius: 5px;
   background: #D5ECF4;
   color:grey;
+
+  .userAboutMeTitle{
+    font-size: 110%;
+    text-align: center;
+    text-shadow: 1px 1px 2px black;
+    color:white;
+    text-decoration: underline;
+  }
 }
 
 .dogAboutMe{
@@ -1018,6 +1031,16 @@ body{
   border-radius: 5px;
   background: #E79C67;
   color:white;
+
+  .dogAboutMeTitle{
+    font-size: 110%;
+    text-align: center;
+    text-shadow: 1px 1px 2px black;
+    color:white;
+    width:100%;
+    text-align: center;
+    text-decoration: underline;
+  }
 }
 
 .matchButtonContainer{
@@ -1534,6 +1557,10 @@ body{
         color:white;
         border-radius: 0px;
       }
+
+      b{
+        color:white;
+      }
     }
 
     .homeDog{
@@ -1693,7 +1720,6 @@ body{
       text-align: center;
       font-size: 130%;
       text-decoration: underline;
-      font-family: 'Fredoka One', cursive;
       color:white;
       text-shadow: 1px 1px 2px black;
       padding-top: 3%;
