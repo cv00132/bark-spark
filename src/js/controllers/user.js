@@ -5,6 +5,9 @@ function UserController($scope, $http, SERVER, $cookies, $state, $rootScope, $lo
   let vm = this;
 
   vm.goProfile = goProfile;
+  vm.menu = false;
+
+  vm.dropMenu = dropMenu;
 
 
   $scope.theFilter = "";
@@ -63,6 +66,15 @@ function UserController($scope, $http, SERVER, $cookies, $state, $rootScope, $lo
   function goProfile ()  {
     let userId = $cookies.get('userId');
     $state.go('root.profile', {id: userId})
+  }
+
+  function dropMenu() {
+    if(vm.menu === false){
+      vm.menu = true;
+    }
+    else if(vm.menu === true){
+      vm.menu = false;
+    }
   }
 
 
