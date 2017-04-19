@@ -1,21 +1,33 @@
 <div class="navbar">
-    <div class="navTitle"><a href="#!/home">BarkSpark</a></div>
+    <div class="navTitle"><a href ng-click="UserController.goProfile()">BarkSpark</a></div>
     <form class="searchBar">
-      <input type="text" placeholder="Search for your perfect match" ng-model="userInput"  ng-show="loggedIn"/>
-      <button ng-click="filterButton(userInput)"  ng-show="loggedIn"><i class="fa fa-search" aria-hidden="true"></i></button>
+        <input type="text" placeholder="Search for your perfect match" ng-model="userInput" ng-show="loggedIn" />
+        <button ng-click="filterButton(userInput)" ng-show="loggedIn"><i class="fa fa-search" aria-hidden="true"></i></button>
     </form>
-    <div class = "chatButton"><a href = "#!/chat">Chat</a></div>
-    <div class = "backToProfile"><a href ng-click="UserController.goProfile()">Profile</a></div>
+    <div class="hamburgerMenuContainer" ng-show="UserController.menu">
+        <ul>
+            <li class="hamburgerMenuItem"><a href="#!/home">Find a match</a></li>
+            <li class="hamburgerMenuItem"><a href="#!/chat">Chat</a></li>
+            <li class="hamburgerMenuItem"><a href="https://tiy-boss-barkmap.surge.sh" target="_blank">Map</a></li>
+            <li class="hamburgerMenuItem" ng-show="loggedIn" ng-click="logout()">Log-Out</li>
+        </ul>
+      </div>
+    <div class="hamburgerContainer" ng-click="UserController.dropMenu()">
+        <div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>
+    </div>
+
+    <!-- <div class="chatButton"><a href="#!/chat">Chat</a></div>
+    <div class="backToProfile"><a href="#!/home">Find a match</a></div> -->
     <div class="loginLogoutContainer">
-    <form class="login" ng-show="!loggedIn">
-      <a href = "#!/login"><button>Log-In</button></a>
-    </form>
-    <form class="logout" ng-show="loggedIn" ng-submit="logout()">
-      <button>Log-Out</button>
-    </form>
-  </div>
-  </div>
+        <form class="login" ng-show="!loggedIn">
+            <a href="#!/login"><button>Log-In</button></a>
+        </form>
+        <!-- <form class="logout" ng-show="loggedIn" ng-submit="logout()">
+            <button>Log-Out</button>
+        </form> -->
+    </div>
+</div>
 
-  <div ui-view></div>
+<div ui-view></div>
 
-  <footer class = "footer"><a href="https://tiy-boss-barkmap.surge.sh" target="_blank">BarkSpark-Map(Powered by GoogleMaps)</a><a class = "aboutUsButton" href = "#!/aboutUs"> About Us</a></footer>
+<footer class="footer"><a href="https://tiy-boss-barkmap.surge.sh" target="_blank">BarkSpark-Map(Powered by GoogleMaps)</a><a class="aboutUsButton" href="#!/aboutUs"> About Us</a></footer>

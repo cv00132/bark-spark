@@ -93,6 +93,62 @@ body{
     }
   }
 
+  .hamburgerMenuContainer{
+    position: fixed;
+    left:84%;
+    background: rgba(50, 50, 50, .5);
+    text-align: center;
+    color:white;
+    bottom:63%;
+    border-radius: 5px;
+    transition: all linear 20s;
+
+    ul{
+      padding-left: 0px;
+    }
+
+    li{
+      list-style: none;
+      text-align: center;
+      width:200px;
+      border-bottom: 1px dashed white;
+      text-shadow: 1px 1px 2px black;
+      padding-bottom: 10px;
+      padding-top: 10px;
+    }
+
+    li:hover{
+      text-shadow: 1px 1px 1px white;
+    }
+
+    a{
+      color:white;
+      text-decoration: none;
+    }
+  }
+
+  .hamburgerContainer{
+    height:24px;
+    width:50px;
+    position: absolute;
+    left: 90.5%;
+    bottom:94%;
+
+    .hamburger{
+      height:5px;
+      width:30px;
+      margin: auto;
+      margin-bottom: 3px;
+      font-size: 160%;
+      color:white;
+      text-shadow: 1px 1px 2px black;
+    }
+
+    .hamburger:hover{
+      text-shadow: 1px 1px 2px #E79C67;
+    }
+  }
+
   .searchBar{
     margin-left: 37%;
 
@@ -109,7 +165,7 @@ body{
     button{
       height:20px;
       position: absolute;
-      top:-2.50%;
+      top:-2.15%;
       width:3%;
       padding-bottom:2%;
       margin-left: -1%;
@@ -131,7 +187,7 @@ body{
   .backToProfile{
     color:white;
     position: absolute;
-    left:87%;
+    left:85%;
     top:3.75%;
     font-size: 110%;
 
@@ -185,7 +241,7 @@ body{
 .backToProfile:hover{
   color:white;
   position: absolute;
-  left:87%;
+  left:85%;
 
   a{
     text-decoration: none;
@@ -214,6 +270,43 @@ body{
   }
 }
 
+.hamburgerMenuContainer{
+  position: fixed;
+  left:84%;
+  background: rgba(50, 50, 50, .5);
+  text-align: center;
+  color:white;
+  bottom:63%;
+  border-radius: 5px;
+  transition: all linear 20s;
+
+  ul{
+    padding-left: 0px;
+  }
+
+  li{
+    list-style: none;
+    text-align: center;
+    width:200px;
+    border-bottom: 1px dashed white;
+    text-shadow: 1px 1px 2px black;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+
+  li:hover{
+    text-shadow: 1px 1px 1px white;
+  }
+
+  a{
+    color:white;
+    text-decoration: none;
+  }
+}
+
+.hamburgerMenuContainer.ng-hide{
+  opacity: 0;
+}
 
 .footer{
   height:50px;
@@ -1118,15 +1211,15 @@ body{
       position: absolute;
       border: 1px solid grey;
       border-radius: 5px;
-      top: 99%;
+      top: 88%;
       left: 8%;
       padding-left: 5px;
     }
     button{
       position:absolute;
-      top:99%;
+      top:88%;
       left:58.5%;
-      height:3.75%;
+      height:3.50%;
       width:3%;
       border-radius: 5px;
       border: 1px solid grey;
@@ -1315,12 +1408,69 @@ body{
       font-family: 'Fredoka One', cursive;
       text-shadow: 1px 1px 2px black;
       float:left;
-      margin-top: -1%;
+      margin-top: 1%;
 
       a{
         color: white;
         font-family: 'Fredoka One', cursive;
         text-decoration: none;
+      }
+    }
+
+    .hamburgerMenuContainer{
+      position: fixed;
+      left:68%;
+      background: rgba(50, 50, 50, .5);
+      text-align: center;
+      color:white;
+      bottom:60.5%;
+      border-radius: 5px;
+      transition: all linear 20s;
+      font-size: 90%;
+
+      ul{
+        padding-left: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
+
+      li{
+        list-style: none;
+        text-align: center;
+        width:100px;
+        border-bottom: 1px dashed white;
+        text-shadow: 1px 1px 2px black;
+      }
+
+      li:hover{
+        text-shadow: 1px 1px 1px white;
+      }
+
+      a{
+        color:white;
+        text-decoration: none;
+      }
+    }
+
+    .hamburgerContainer{
+      height:24px;
+      width:50px;
+      position: absolute;
+      left: 85%;
+      bottom:94.5%;
+
+      .hamburger{
+        height:5px;
+        width:30px;
+        margin: auto;
+        margin-bottom: 3px;
+        font-size: 120%;
+        color:white;
+        text-shadow: 1px 1px 2px black;
+      }
+
+      .hamburger:hover{
+        text-shadow: 1px 1px 2px #E79C67;
       }
     }
 
