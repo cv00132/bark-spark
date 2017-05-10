@@ -10,24 +10,14 @@
      <button><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
    </form>
  </div>
-   <!-- <li class = "sentMessage"><span><b>Name1:</b><br> Irish skClimb leg rub face on everything give attitude nap all day for under the bed. Chase mice attack feet but rub face on everything hopped up on goofballs.
-inny, grinder affogato, dark, sweet carajillo, flavour seasonal aroma single origin cream. Percolator, foam, arabica, decaffeinated bar brewed aromatic.
-<span></li>
-   <li class = "receivedMessage"><span><b>Name2:</b><br> Climb legClimb leg rub face on everything give attitude nap all day for under the bed. Chase mice attack feet but rub face on everything hopped up on goofballs.
- rub face on everything give attitude nap all day for under the bed. Chase mice attack feet but rub face on everything hopped up on goofballs.
-<span></li> -->
 
   <div class = "chatListContainer">
     <div class = "chatListTitle">Chats</div>
     <ul class = "chatList" ng-repeat="chat in SocketController.chats">
       <li class = "chat" ng-click="SocketController.initChat(chat.id)">
-          {{ chat.id }}
+          <span ng-show="chat.senderId != SocketController.userId">{{ chat.senderId }}</span>
+          <span ng-show="chat.senderId == SocketController.userId">{{ chat.receiverId }}</span>
       </li>
-      <!-- <li class = "chat">Example</li>
-      <li class = "chat">Example</li>
-      <li class = "chat">Example</li>
-      <li class = "chat">Example</li>
-      <li class = "chat">Example</li> -->
       </ul>
     </div>
   </div>

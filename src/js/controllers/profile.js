@@ -36,7 +36,6 @@ function ProfileController ($http, $state, SERVER, $location, $cookies){
       vm.tags=response.data.Tags;
       vm.matches=response.data.Received;
       var timeCreated = response.data.Posts;
-      console.log(response, "you got data");
       checkMatch();
     })
     .catch(function(error){
@@ -53,16 +52,6 @@ function ProfileController ($http, $state, SERVER, $location, $cookies){
       }
     }
   }
-  // function checkMatch(){
-  //   for (i = 0; i < currentUser.Received; i++){
-  //     if (i.senderId === vm.userId){
-  //       vm.sameMatch.push(i.senderId);
-  //       console.log(i);
-  //     }
-  //   }
-  //   console.log("hello");
-  // }
-  //  checkMatch();
 
   function getAge(birthday) {
       var today = new Date();
@@ -82,7 +71,6 @@ function ProfileController ($http, $state, SERVER, $location, $cookies){
   function addPhoto(post) {
           $http.post(`${SERVER}/${$state.params.id}/post`, post)
           .then(function(){
-              console.log("successfully posted the photo");
               backToProfile();
               $state.reload();
           })
@@ -94,7 +82,6 @@ function ProfileController ($http, $state, SERVER, $location, $cookies){
   function addText(post) {
     $http.post(`${SERVER}/${$state.params.id}/post`, post)
     .then(function(){
-      console.log("successfully posted the textPost", post);
       backToProfile();
       $state.reload();
     })
@@ -116,7 +103,6 @@ function ProfileController ($http, $state, SERVER, $location, $cookies){
   function editUserInfo(data) {
     $http.put(`${SERVER}/user/${$state.params.id}`, data)
     .then(function(){
-      console.log("info edited");
       backToProfile();
       $state.reload();
     })
@@ -128,7 +114,6 @@ function ProfileController ($http, $state, SERVER, $location, $cookies){
   function addDog(dog) {
     $http.post(`${SERVER}/${$state.params.id}/addDog`, dog)
     .then(function(response){
-      console.log("hooray there's a new dog!");
       backToProfile();
       $state.reload();
     })
@@ -140,7 +125,6 @@ function ProfileController ($http, $state, SERVER, $location, $cookies){
   function newMatch() {
     $http.post(`${SERVER}/user/${$state.params.id}/match`)
     .then(function(response){
-      console.log("match added");
       $state.reload();
     })
     .catch(function(error){
@@ -152,7 +136,6 @@ function ProfileController ($http, $state, SERVER, $location, $cookies){
   function acceptMatch(matchId){
     $http.put(`${SERVER}/matches/${matchId}/accept`)
     .then(function(response){
-      console.log("match accepted!");
       $state.reload();
     })
     .catch(function(error){
@@ -163,7 +146,6 @@ function ProfileController ($http, $state, SERVER, $location, $cookies){
   function deleteMatch(matchId){
     $http.delete(`${SERVER}/matches/${matchId}/delete`)
     .then(function(response){
-      console.log("match deleted!");
       $state.reload();
     })
     .catch(function(error){

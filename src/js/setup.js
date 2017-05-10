@@ -6,8 +6,6 @@ function setup ($rootScope, $cookies, $http) {
           $rootScope.loggedIn = true;
           $http.defaults.headers.common['access-token'] = token;
       }
-
-      //$rootScope.socket = io('ws://localhost:8000/');
       $rootScope.socket = io('ws://fierce-fjord-93438.herokuapp.com/');
 
   }
